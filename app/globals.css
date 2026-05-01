@@ -271,7 +271,7 @@ video {
 }
 
 .pageHeroVisual > * {
-  width: min(100%, 480px);
+  width: min(100%, 580px);
 }
 
 .eyebrow {
