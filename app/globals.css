@@ -1015,3 +1015,81 @@ p {
     transform: none;
   }
 }
+/* Johnston Bros App Section Spacing Fix */
+
+.appShowcaseSection {
+  align-items: center;
+  min-height: 560px;
+  padding: 56px clamp(16px, 3vw, 42px);
+}
+
+.appShowcaseImageWrap {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 420px;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.appShowcaseImage {
+  border-radius: 2rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
+  display: block;
+  height: auto;
+  max-width: 360px;
+  object-fit: contain;
+  object-position: center;
+  width: min(100%, 360px);
+}
+
+.appShowcaseSection .splitContent {
+  align-self: center;
+  display: grid;
+  gap: 14px;
+  max-width: 720px;
+}
+
+.appShowcaseSection .splitContent h2 {
+  margin-bottom: 0;
+}
+
+.appShowcaseSection .splitContent p {
+  max-width: 700px;
+}
+
+.appShowcaseSection .button {
+  justify-self: start;
+  margin-top: 4px;
+}
+
+/* Mobile spacing fix */
+
+@media (max-width: 860px) {
+  .appShowcaseSection {
+    min-height: auto;
+    padding-bottom: 52px;
+    padding-top: 52px;
+  }
+
+  .appShowcaseImageWrap {
+    min-height: auto;
+    padding: 0 0 1.5rem;
+  }
+
+  .appShowcaseImage {
+    max-width: 280px;
+    width: min(100%, 280px);
+  }
+
+  .appShowcaseSection .splitContent {
+    gap: 12px;
+  }
+}
+
+@media (max-width: 540px) {
+  .appShowcaseImage {
+    max-width: 240px;
+    width: min(100%, 240px);
+  }
+}
