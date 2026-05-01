@@ -5,14 +5,15 @@
   --paper: #fbfbf7;
   --white: #ffffff;
   --smoke: #eef0ec;
-  --line: rgba(16, 16, 16, 0.12);
-  --line-strong: rgba(16, 16, 16, 0.22);
-  --acid: #d7ff3f;
+  --line: rgba(16, 16, 16, 0.08);
+  --line-strong: rgba(16, 16, 16, 0.14);
+  --accent: #B8956A;
+  --accent-light: #D4B896;
   --red: #e84b3c;
   --cyan: #42b8c5;
   --forest: #233428;
-  --shadow: 0 18px 48px rgba(16, 16, 16, 0.12);
-  --shadow-strong: 0 28px 80px rgba(16, 16, 16, 0.2);
+  --shadow: 0 10px 30px rgba(16, 16, 16, 0.08);
+  --shadow-strong: 0 20px 50px rgba(16, 16, 16, 0.12);
 }
 
 * {
@@ -26,10 +27,7 @@ html {
 
 body {
   margin: 0;
-  background:
-    linear-gradient(90deg, rgba(16, 16, 16, 0.045) 1px, transparent 1px) 0 0 / 42px 42px,
-    linear-gradient(0deg, rgba(16, 16, 16, 0.035) 1px, transparent 1px) 0 0 / 42px 42px,
-    var(--paper);
+  background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body), sans-serif;
   text-rendering: optimizeLegibility;
@@ -47,8 +45,8 @@ video {
 }
 
 ::selection {
-  background: var(--acid);
-  color: var(--ink);
+  background: var(--accent);
+  color: var(--white);
 }
 
 .siteHeader {
@@ -76,8 +74,8 @@ video {
 
 .brandMark {
   align-items: center;
-  background: var(--acid);
-  color: var(--ink);
+  background: var(--accent);
+  color: var(--white);
   display: inline-flex;
   font-family: var(--font-display), sans-serif;
   font-size: 0.9rem;
@@ -85,6 +83,7 @@ video {
   height: 42px;
   justify-content: center;
   width: 42px;
+  border-radius: 8px;
 }
 
 .brandText {
@@ -113,10 +112,10 @@ video {
   border-left: 1px solid rgba(255, 255, 255, 0.12);
   color: rgba(255, 255, 255, 0.78);
   font-size: 0.78rem;
-  font-weight: 800;
+  font-weight: 600;
   letter-spacing: 0;
   padding: 13px 16px;
-  text-transform: uppercase;
+  text-transform: none;
   transition:
     background 160ms ease,
     color 160ms ease;
@@ -124,8 +123,8 @@ video {
 
 .navLinks a:hover,
 .navLinks a.is-active {
-  background: var(--acid);
-  color: var(--ink);
+  background: var(--accent);
+  color: var(--white);
 }
 
 .pageShell {
@@ -171,8 +170,8 @@ video {
 
 .homeHero::after {
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.58) 42%, rgba(0, 0, 0, 0.24) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(16, 16, 16, 0.22) 72%, var(--paper) 100%);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.48) 42%, rgba(0, 0, 0, 0.18) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(16, 16, 16, 0.18) 72%, var(--paper) 100%);
   content: "";
   inset: 0;
   position: absolute;
@@ -215,20 +214,19 @@ video {
 }
 
 .heroMeta span {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   color: var(--white);
   font-size: 0.8rem;
-  font-weight: 800;
-  padding: 10px 12px;
-  text-transform: uppercase;
+  font-weight: 600;
+  padding: 10px 14px;
+  text-transform: none;
+  border-radius: 6px;
 }
 
 .pageHero {
   align-items: center;
-  background:
-    linear-gradient(90deg, rgba(215, 255, 63, 0.12) 0 26%, transparent 26%),
-    linear-gradient(135deg, var(--ink) 0%, #1d241f 58%, var(--forest) 100%);
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
   display: grid;
   gap: 42px;
   grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
@@ -240,38 +238,28 @@ video {
 }
 
 .pageHero::before {
-  background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px) 0 0 / 42px 42px,
-    linear-gradient(0deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 42px 42px;
+  background: none;
   content: "";
   inset: 0;
-  opacity: 0.35;
+  opacity: 0;
   pointer-events: none;
   position: absolute;
 }
 
 .booksHero {
-  background:
-    linear-gradient(90deg, rgba(232, 75, 60, 0.22) 0 24%, transparent 24%),
-    linear-gradient(135deg, #191313 0%, #3c231f 54%, #622b25 100%);
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
 }
 
 .showHero {
-  background:
-    linear-gradient(90deg, rgba(66, 184, 197, 0.2) 0 24%, transparent 24%),
-    linear-gradient(135deg, #101010 0%, #172427 54%, #21434a 100%);
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
 }
 
 .resumeHero {
-  background:
-    linear-gradient(90deg, rgba(215, 255, 63, 0.13) 0 24%, transparent 24%),
-    linear-gradient(135deg, #101010 0%, #25261d 54%, #404221 100%);
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
 }
 
 .documentsHero {
-  background:
-    linear-gradient(90deg, rgba(232, 75, 60, 0.18) 0 24%, transparent 24%),
-    linear-gradient(135deg, #101010 0%, #232323 54%, #3c3532 100%);
+  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
 }
 
 .pageHeroVisual {
@@ -287,28 +275,28 @@ video {
 }
 
 .eyebrow {
-  color: var(--red);
+  color: var(--accent);
   font-size: 0.76rem;
-  font-weight: 900;
-  letter-spacing: 0;
+  font-weight: 700;
+  letter-spacing: 0.5px;
   margin: 0 0 16px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .hero .eyebrow,
 .pageHero .eyebrow {
-  color: var(--acid);
+  color: var(--accent-light);
 }
 
 h2,
 h3 {
   color: var(--ink);
   font-family: var(--font-display), sans-serif;
-  font-weight: 900;
-  letter-spacing: 0;
-  line-height: 0.98;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
   margin: 0;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 h2 {
@@ -335,36 +323,39 @@ p {
 
 .button {
   align-items: center;
-  background: var(--acid);
-  border: 2px solid var(--acid);
-  color: var(--ink);
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  color: var(--white);
   display: inline-flex;
   font-size: 0.84rem;
-  font-weight: 900;
+  font-weight: 700;
   justify-content: center;
   min-height: 50px;
-  padding: 13px 18px;
-  text-transform: uppercase;
+  padding: 13px 24px;
+  text-transform: none;
+  border-radius: 8px;
   transition:
     background 160ms ease,
     color 160ms ease,
-    transform 160ms ease;
+    transform 160ms ease,
+    box-shadow 160ms ease;
 }
 
 .button:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(184, 149, 106, 0.3);
 }
 
 .button.secondary {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.74);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
   color: var(--white);
 }
 
 .button.secondary:hover {
-  background: var(--white);
-  border-color: var(--white);
-  color: var(--ink);
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--white);
 }
 
 .section {
@@ -401,7 +392,7 @@ p {
 }
 
 .homeHero + .introGrid .infoCard:first-child .eyebrow {
-  color: var(--acid);
+  color: var(--accent);
 }
 
 .infoCard,
@@ -416,6 +407,7 @@ p {
   box-shadow: var(--shadow);
   overflow: hidden;
   position: relative;
+  border-radius: 12px;
 }
 
 .infoCard,
@@ -474,6 +466,7 @@ p {
   min-height: 360px;
   overflow: hidden;
   position: relative;
+  border-radius: 12px;
 }
 
 .portraitFeatureFrame {
@@ -505,16 +498,17 @@ p {
 }
 
 .playBadge {
-  background: var(--acid);
+  background: var(--accent);
   bottom: 18px;
-  color: var(--ink);
+  color: var(--white);
   font-size: 0.76rem;
-  font-weight: 900;
+  font-weight: 700;
   left: 18px;
-  padding: 10px 12px;
+  padding: 10px 14px;
   position: absolute;
-  text-transform: uppercase;
+  text-transform: none;
   z-index: 2;
+  border-radius: 6px;
 }
 
 .sectionText {
@@ -530,12 +524,12 @@ p {
 
 .inlineLink {
   color: var(--ink);
-  font-weight: 900;
+  font-weight: 700;
   text-decoration: underline;
-  text-decoration-color: var(--red);
+  text-decoration-color: var(--accent);
   text-decoration-thickness: 2px;
   text-underline-offset: 4px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .highlightSection {
@@ -549,8 +543,9 @@ p {
 
 .highlightSection .highlightCard {
   background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.12);
   box-shadow: none;
+  border-radius: 12px;
 }
 
 .sectionHeader,
@@ -579,6 +574,7 @@ p {
   box-shadow: var(--shadow-strong);
   overflow: hidden;
   position: relative;
+  border-radius: 12px;
 }
 
 .teamSection,
@@ -654,6 +650,7 @@ p {
   overflow: hidden;
   position: relative;
   width: 100%;
+  border-radius: 12px;
 }
 
 .bookCard {
@@ -689,11 +686,11 @@ p {
 }
 
 .detailLine {
-  color: var(--red);
+  color: var(--accent);
   font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: none;
 }
 
 .statusBadge {
@@ -701,17 +698,19 @@ p {
   background: var(--ink);
   color: var(--white);
   font-size: 0.74rem;
-  font-weight: 900;
-  padding: 8px 10px;
-  text-transform: uppercase;
+  font-weight: 700;
+  padding: 8px 12px;
+  text-transform: none;
+  border-radius: 6px;
 }
 
 .heroPanel {
   background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   box-shadow: none;
   color: var(--white);
   padding: 28px;
+  border-radius: 12px;
 }
 
 .heroPanel .eyebrow,
@@ -758,7 +757,7 @@ p {
 
 .resumeGrid .experienceCard:first-child .timelinePeriod,
 .resumeGrid .experienceCard:nth-child(2) .timelinePeriod {
-  color: var(--acid);
+  color: var(--accent-light);
 }
 
 .timelineOrg {
@@ -793,8 +792,9 @@ p {
   background: var(--smoke);
   color: var(--ink);
   font-size: 0.82rem;
-  font-weight: 800;
-  padding: 9px 11px;
+  font-weight: 600;
+  padding: 9px 13px;
+  border-radius: 6px;
 }
 
 .documentGrid {
@@ -830,10 +830,10 @@ p {
   color: var(--white);
   font-family: var(--font-display), sans-serif;
   font-size: 2rem;
-  font-weight: 900;
-  line-height: 1;
+  font-weight: 800;
+  line-height: 1.1;
   margin-bottom: 6px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .footerLinks {
@@ -846,11 +846,11 @@ p {
 
 .footerLinks a {
   font-size: 0.88rem;
-  font-weight: 900;
+  font-weight: 700;
   text-decoration: underline;
-  text-decoration-color: var(--acid);
+  text-decoration-color: var(--accent);
   text-underline-offset: 4px;
-  text-transform: uppercase;
+  text-transform: none;
 }
 
 .motionReady .pageShell > section > *:not(.heroVideo) {
