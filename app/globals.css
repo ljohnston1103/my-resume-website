@@ -170,7 +170,7 @@ video {
 
 .homeHero::after {
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.48) 42%, rgba(0, 0, 0, 0.18) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.68) 0%, rgba(0, 0, 0, 0.36) 42%, rgba(0, 0, 0, 0.14) 100%),
     linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(16, 16, 16, 0.18) 72%, var(--paper) 100%);
   content: "";
   inset: 0;
