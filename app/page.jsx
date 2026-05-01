@@ -8,13 +8,15 @@ export default function Home() {
       <section className="hero homeHero">
         <video
           className="heroVideo heroVideoBackground"
-          src="/hero-video.mp4"
-          aria-label="Dr. Luke Johnston featured video"
           autoPlay
-          loop
           muted
+          loop
           playsInline
-        />
+          preload="auto"
+          aria-label="Dr. Luke Johnston featured video"
+        >
+          <source src="/hero-video.mp4" type="video/mp4" />
+        </video>
         <div className="heroContent">
           <p className="eyebrow">Official Site</p>
           <h1>Dr. Luke Johnston</h1>
