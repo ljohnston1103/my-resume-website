@@ -91,7 +91,7 @@ export default function ShowPage() {
       <section className="splitSection appShowcaseSection">
         <div className="appShowcaseImageWrap">
           <img
-            src="/johnston-bros-app.png"
+            src="/johnston-bros-app.webp"
             alt="Johnston Bros app preview"
             className="appShowcaseImage"
           />
