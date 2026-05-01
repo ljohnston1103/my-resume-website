@@ -88,40 +88,34 @@ export default function ShowPage() {
         </div>
       </section>
 
-      <section className="section splitSection">
-        <a
-          className="portraitFeature"
-          href="https://apps.apple.com/us/app/johnston-bros/id6763349676"
-          target="_blank"
-          rel="noreferrer"
-          aria-label="Download the Johnston Bros app"
-        >
-          <div className="portraitFeatureFrame">
-            <Image
-              src="/johnston-bros-app.png"
-              alt="Johnston Bros mobile app"
-              fill
-              sizes="(max-width: 860px) 100vw, 44vw"
-              className="portraitFeatureImage"
-            />
-          </div>
-          <span className="playBadge">Download App</span>
-        </a>
-        <div className="sectionText">
-          <p className="eyebrow">Technology & Design</p>
-          <h2 className="seriesHeadline">I designed and built the Johnston Bros mobile app.</h2>
+      <section className="splitSection appShowcaseSection">
+        <div className="appShowcaseImageWrap">
+          <img
+            src="/johnston-bros-app.png"
+            alt="Johnston Bros app preview"
+            className="appShowcaseImage"
+          />
+        </div>
+
+        <div className="splitContent">
+          <p className="eyebrow">App Design & Development</p>
+          <h2>Johnston Bros App</h2>
           <p>
-            The Johnston Bros app brings our teaching content directly to your pocket, featuring video lessons, resources, and updates. I handled the full design and development of the iOS app to create an intuitive experience for our audience.
+            I designed and developed the Johnston Bros app as an extension of
+            the Johnston Bros brand, bringing together website content, media,
+            and mobile-friendly access in one place.
           </p>
-          <div className="buttonRow">
-            <a
-              className="button"
-              href="https://apps.apple.com/us/app/johnston-bros/id6763349676"
-              target="_blank"
-              rel="noreferrer"
-            >
-              View on App Store
-            </a>
-          </div>
+
+          <a
+            className="button"
+            href="https://apps.apple.com/us/app/johnston-bros/id6763349676"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View on the App Store
+          </a>
         </div>
       </section>
+    </main>
+  );
+}
