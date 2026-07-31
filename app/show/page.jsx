@@ -3,7 +3,7 @@ import PageHero from "../components/PageHero";
 import { showHighlights, showLinks } from "../siteData";
 
 export const metadata = {
-  title: "Show",
+  title: "Multimedia Produced",
 };
 
 export default function ShowPage() {
@@ -11,9 +11,9 @@ export default function ShowPage() {
     <main className="pageShell">
       <PageHero
         className="showHero"
-        eyebrow="JohnstonBros"
-        title="JohnstonBros show work and media ministry."
-        lead="This page highlights my role with JohnstonBros, the current teaching series, and links to the main show platforms."
+        eyebrow="Multimedia Produced"
+        title="Media, research, and teaching resources I help bring to life."
+        lead="Explore my work with JohnstonBros, Oldest & Best, and the How To Study the Bible podcast from Millheim Baptist Church."
         actions={
           <>
             {showLinks.map((link) => (
@@ -35,7 +35,7 @@ export default function ShowPage() {
           href="https://youtu.be/b8YelGLYFH4"
           target="_blank"
           rel="noreferrer"
-          aria-label="Watch the current JohnstonBros series"
+          aria-label="Watch a JohnstonBros series"
         >
           <Image
             src="/why-kjv-thumbnail.png"
@@ -48,47 +48,61 @@ export default function ShowPage() {
         </a>
       </PageHero>
 
-      <section className="section introGrid">
-        {showHighlights.map((item) => (
-          <article className="infoCard staticCard" key={item.title}>
-            <p className="eyebrow">Show Focus</p>
-            <h2>{item.title}</h2>
-            <p>{item.text}</p>
-          </article>
-        ))}
+      <section className="section sectionWash">
+        <div className="sectionHeader">
+          <p className="eyebrow">Featured work</p>
+          <h2>Media with a purpose.</h2>
+        </div>
+        <div className="introGrid">
+          {showHighlights.map((item) => (
+            <article className="infoCard staticCard" key={item.title}>
+              <p className="eyebrow">Multimedia Produced</p>
+              <h2>{item.title}</h2>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section className="section splitSection">
         <div className="sectionText">
-          <p className="eyebrow">My Role</p>
+          <p className="eyebrow">Production Role</p>
           <h2 className="seriesHeadline">
-            I help plan, produce, edit, and publish JohnstonBros content.
+            I help plan, produce, edit, and publish meaningful digital content.
           </h2>
           <p>
-            JohnstonBros is where my teaching, media production, and publishing
-            work come together each week.
+            From video and podcast production to research-focused web resources,
+            this work brings teaching, media production, and publishing together.
           </p>
         </div>
         <div className="notePanel">
-          <p className="eyebrow">Current JohnstonBros Focus</p>
+          <p className="eyebrow">Explore the Projects</p>
           <div className="resumeList">
             <div className="listRow">
-              <strong>Weekly schedule</strong>
-              <span>The homepage currently invites viewers to join every Wednesday morning.</span>
+              <strong>JohnstonBros</strong>
+              <span>
+                Faith-centered video and podcast content, from episode ideas to
+                online publishing.
+              </span>
             </div>
             <div className="listRow">
-              <strong>Featured series</strong>
-              <span>The current featured series is WHY WE USE THE KJV.</span>
+              <strong>Oldest &amp; Best</strong>
+              <span>
+                An interactive evidence database for exploring disputed New
+                Testament passages and their textual witnesses.
+              </span>
             </div>
             <div className="listRow">
-              <strong>Series theme</strong>
-              <span>The series explores the manuscripts, methods, and men behind the King James Version and modern versions.</span>
+              <strong>How To Study the Bible</strong>
+              <span>
+                Listen to the Millheim Baptist Church podcast on Spotify.
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="splitSection appShowcaseSection">
+      <section className="section splitSection appShowcaseSection">
         <div className="appShowcaseImageWrap">
           <img
             src="/johnston-bros-app.webp"
@@ -98,8 +112,8 @@ export default function ShowPage() {
         </div>
 
         <div className="splitContent">
-          <p className="eyebrow">App Design & Development</p>
-          <h2>Johnston Bros App</h2>
+          <p className="eyebrow">App Design &amp; Development</p>
+          <h2 className="seriesHeadline">Johnston Bros App</h2>
           <p>
             I designed and developed the Johnston Bros app as an extension of
             the Johnston Bros brand, bringing together website content, media,

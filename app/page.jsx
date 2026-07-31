@@ -5,9 +5,9 @@ import { homeCards, homeHighlights } from "./siteData";
 export default function Home() {
   return (
     <main className="pageShell">
-      <section className="hero homeHero">
+      <section className="hero">
         <video
-          className="heroVideo heroVideoBackground"
+          className="heroVideo"
           autoPlay
           muted
           loop
@@ -44,14 +44,20 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section introGrid">
-        {homeCards.map((card) => (
-          <Link key={card.href} className="infoCard" href={card.href}>
-            <p className="eyebrow">{card.eyebrow}</p>
-            <h2>{card.title}</h2>
-            <p>{card.text}</p>
-          </Link>
-        ))}
+      <section className="section sectionWash">
+        <div className="sectionHeader">
+          <p className="eyebrow">Explore</p>
+          <h2>Start here.</h2>
+        </div>
+        <div className="introGrid">
+          {homeCards.map((card) => (
+            <Link key={card.href} className="infoCard" href={card.href}>
+              <p className="eyebrow">{card.eyebrow}</p>
+              <h2>{card.title}</h2>
+              <p>{card.text}</p>
+            </Link>
+          ))}
+        </div>
       </section>
 
       <section className="section splitSection">
@@ -73,7 +79,9 @@ export default function Home() {
         </Link>
         <div className="sectionText">
           <p className="eyebrow">About Dr. Luke Johnston</p>
-          <h2 className="seriesHeadline">Pastor, teacher, author, and JohnstonBros contributor.</h2>
+          <h2 className="seriesHeadline">
+            Pastor, teacher, author, and JohnstonBros contributor.
+          </h2>
           <p>
             Use this site to learn about my ministry work, published writing,
             media involvement, and academic background.
@@ -82,6 +90,10 @@ export default function Home() {
       </section>
 
       <section className="section highlightSection">
+        <div className="sectionHeader">
+          <p className="eyebrow">Highlights</p>
+          <h2>What you will find here.</h2>
+        </div>
         <div className="highlightGrid">
           {homeHighlights.map((item) => (
             <article className="highlightCard" key={item.title}>

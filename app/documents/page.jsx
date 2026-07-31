@@ -48,23 +48,28 @@ export default function DocumentsPage() {
         </div>
       </PageHero>
 
-      <section className="section documentGrid">
-        {documents.map((document) => (
-          <a
-            className="bookCard"
-            href={document.href}
-            key={document.title}
-            target="_blank"
-            rel="noreferrer"
-          >
-            <p className="eyebrow">{document.badge}</p>
-            <h2>{document.title}</h2>
-            <p>{document.text}</p>
-            <span className="inlineLink">Open PDF</span>
-          </a>
-        ))}
+      <section className="section sectionWash">
+        <div className="sectionHeader">
+          <p className="eyebrow">Document Center</p>
+          <h2>Every record in one place.</h2>
+        </div>
+        <div className="documentGrid">
+          {documents.map((document) => (
+            <a
+              className="bookCard"
+              href={document.href}
+              key={document.title}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <p className="eyebrow">{document.badge}</p>
+              <h2>{document.title}</h2>
+              <p>{document.text}</p>
+              <span className="inlineLink">Open PDF</span>
+            </a>
+          ))}
+        </div>
       </section>
-
     </main>
   );
 }

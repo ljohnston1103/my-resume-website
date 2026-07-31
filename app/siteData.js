@@ -2,7 +2,7 @@ export const navItems = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Books", href: "/books" },
-  { label: "Show", href: "/show" },
+  { label: "Multimedia Produced", href: "/show" },
   { label: "Resume", href: "/resume" },
   { label: "Documents", href: "/documents" },
 ];
@@ -106,31 +106,31 @@ export const books = [
 
 export const showLinks = [
   {
-    label: "YouTube",
+    label: "JohnstonBros on YouTube",
     href: "https://www.youtube.com/channel/UCeFimD5XDt6i9LATwWVXSBg",
   },
   {
-    label: "Instagram",
-    href: "https://www.instagram.com/thejohnstonbros/",
+    label: "Oldest & Best",
+    href: "https://oldestandbest.com/",
   },
   {
-    label: "Facebook",
-    href: "https://www.facebook.com/profile.php?id=61587135141388&mibextid=wwXIfr&rdid=U7Cz0PYLOpevXcth#",
+    label: "Listen on Spotify",
+    href: "https://open.spotify.com/show/033ti3d3jH6yt4xdqginSC?si=0a847f544a594aa6",
   },
 ];
 
 export const showHighlights = [
   {
-    title: "Wednesday morning show",
-    text: "The JohnstonBros homepage currently invites viewers to join every Wednesday morning for Bible conversations and practical studies.",
+    title: "JohnstonBros",
+    text: "Faith-centered podcast and video work, including planning, recording, editing, and publishing content for the JohnstonBros audience.",
   },
   {
-    title: "Current series",
-    text: "The site currently highlights the series WHY WE USE THE KJV, focused on the manuscripts, methods, and men behind the King James Version and modern versions.",
+    title: "Oldest & Best",
+    text: "An interactive manuscript-evidence resource for examining contested New Testament passages through Greek witnesses, ancient versions, and church fathers.",
   },
   {
-    title: "Production role",
-    text: "My resume reflects my role in planning, producing, editing, and publishing JohnstonBros media content.",
+    title: "How To Study the Bible",
+    text: "A Millheim Baptist Church podcast available on Spotify, created to help listeners approach Scripture with confidence and care.",
   },
 ];
 

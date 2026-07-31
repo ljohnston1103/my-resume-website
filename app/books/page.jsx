@@ -37,35 +37,41 @@ export default function BooksPage() {
         </div>
       </PageHero>
 
-      <section className="section bookGrid">
-        {books.map((book) => (
-          <article className="bookCard" key={book.title}>
-            <div className="bookCardImageWrap">
-              <Image
-                src={book.cover}
-                alt={`${book.title} cover`}
-                width={387}
-                height={500}
-                className="bookCardImage"
-              />
-            </div>
-            <p className="eyebrow">{book.eyebrow}</p>
-            <h2>{book.title}</h2>
-            <p className="detailLine">{book.detail}</p>
-            <p>{book.text}</p>
-            <div className="cardFooter">
-              <span className="statusBadge">{book.status}</span>
-              <a
-                className="inlineLink"
-                href={book.href}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {book.linkLabel}
-              </a>
-            </div>
-          </article>
-        ))}
+      <section className="section sectionWash">
+        <div className="sectionHeader">
+          <p className="eyebrow">Published Work</p>
+          <h2>Two published titles.</h2>
+        </div>
+        <div className="bookGrid">
+          {books.map((book) => (
+            <article className="bookCard" key={book.title}>
+              <div className="bookCardImageWrap">
+                <Image
+                  src={book.cover}
+                  alt={`${book.title} cover`}
+                  width={387}
+                  height={500}
+                  className="bookCardImage"
+                />
+              </div>
+              <p className="eyebrow">{book.eyebrow}</p>
+              <h2>{book.title}</h2>
+              <p className="detailLine">{book.detail}</p>
+              <p>{book.text}</p>
+              <div className="cardFooter">
+                <span className="statusBadge">{book.status}</span>
+                <a
+                  className="inlineLink"
+                  href={book.href}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {book.linkLabel}
+                </a>
+              </div>
+            </article>
+          ))}
+        </div>
       </section>
     </main>
   );

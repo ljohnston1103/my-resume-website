@@ -5,10 +5,19 @@ import {
   verifyAuthToken,
 } from "./lib/siteAuth";
 
+// Image files must stay reachable without the gate: Next's image optimizer
+// fetches them server-side with no cookie, so gating them breaks every
+// <Image> on the site. PDFs and everything else stay protected.
+const PUBLIC_IMAGE = /\.(?:png|jpe?g|webp|avif|gif|svg|ico)$/i;
+
 export async function proxy(request) {
   const pathname = request.nextUrl.pathname;
 
-  if (pathname.startsWith("/_next/") || pathname === "/favicon.ico") {
+  if (
+    pathname.startsWith("/_next/") ||
+    pathname === "/favicon.ico" ||
+    PUBLIC_IMAGE.test(pathname)
+  ) {
     return NextResponse.next();
   }
 

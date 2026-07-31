@@ -1,19 +1,42 @@
+/* ==========================================================================
+   Design system
+   Ported from the JohnstonBros visual language: soft sage/ivory paper,
+   forest + honey + brick accents, glass chrome, fluid type, layered motion.
+   ========================================================================== */
+
 :root {
-  --ink: #101010;
-  --ink-soft: rgba(16, 16, 16, 0.72);
-  --ink-muted: rgba(16, 16, 16, 0.52);
-  --paper: #fbfbf7;
-  --white: #ffffff;
-  --smoke: #eef0ec;
-  --line: rgba(16, 16, 16, 0.08);
-  --line-strong: rgba(16, 16, 16, 0.14);
-  --accent: #B8956A;
-  --accent-light: #D4B896;
-  --red: #e84b3c;
-  --cyan: #42b8c5;
-  --forest: #233428;
-  --shadow: 0 10px 30px rgba(16, 16, 16, 0.08);
-  --shadow-strong: 0 20px 50px rgba(16, 16, 16, 0.12);
+  /* Surfaces */
+  --paper: #f7f9f7;
+  --paper-strong: #fffffc;
+  --mist: #dfece6;
+  --sage: #9abbab;
+
+  /* Ink */
+  --ink: #151d1a;
+  --ink-soft: rgba(21, 29, 26, 0.72);
+  --ink-muted: rgba(21, 29, 26, 0.58);
+
+  /* Accents */
+  --forest: #1f4f42;
+  --teal: #28726f;
+  --brick: #9c3d30;
+  --honey: #e0bc65;
+
+  /* Lines + depth */
+  --line: rgba(21, 29, 26, 0.13);
+  --line-strong: rgba(21, 29, 26, 0.22);
+  --shadow-soft: 0 22px 70px rgba(21, 29, 26, 0.12);
+  --shadow-lift: 0 32px 90px rgba(21, 29, 26, 0.18);
+  --shadow-card: 0 18px 46px rgba(21, 29, 26, 0.1);
+
+  /* Motion */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* Rhythm */
+  --gutter: clamp(18px, 6vw, 88px);
+  --section-y: clamp(72px, 10vw, 128px);
+  --radius: 14px;
+  --radius-lg: 18px;
 }
 
 * {
@@ -23,14 +46,49 @@
 html {
   background: var(--paper);
   scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
   margin: 0;
-  background: var(--paper);
+  background:
+    linear-gradient(90deg, rgba(31, 79, 66, 0.035) 1px, transparent 1px) 0 0 / 44px 44px,
+    linear-gradient(0deg, rgba(31, 79, 66, 0.03) 1px, transparent 1px) 0 0 / 44px 44px,
+    var(--paper);
   color: var(--ink);
-  font-family: var(--font-body), sans-serif;
+  font-family: var(--font-body), Inter, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
   text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Slow-drifting colour wash behind everything */
+body::before {
+  animation: pageTexture 18s var(--ease) infinite alternate;
+  background:
+    linear-gradient(
+      115deg,
+      transparent 0 18%,
+      rgba(154, 187, 171, 0.14) 18% 29%,
+      transparent 29% 62%,
+      rgba(224, 188, 101, 0.08) 62% 72%,
+      transparent 72%
+    ),
+    linear-gradient(rgba(255, 255, 252, 0.92), rgba(247, 249, 247, 0.64));
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: fixed;
+  z-index: -2;
+}
+
+@keyframes pageTexture {
+  0% {
+    transform: translate(-2%, -1%);
+  }
+  100% {
+    transform: translate(2%, 1%);
+  }
 }
 
 a {
@@ -45,28 +103,107 @@ video {
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--white);
+  background: rgba(224, 188, 101, 0.42);
+  color: var(--ink);
 }
+
+/* --------------------------------------------------------------------------
+   Typography
+   -------------------------------------------------------------------------- */
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  font-family: var(--font-display), Inter, ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: clamp(3rem, 7.2vw, 7.4rem);
+  line-height: 0.96;
+}
+
+h2 {
+  font-size: clamp(2.2rem, 4.6vw, 4.8rem);
+  line-height: 0.99;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 1.9vw, 1.6rem);
+  line-height: 1.14;
+}
+
+p {
+  color: var(--ink-soft);
+  font-size: clamp(1rem, 1.35vw, 1.1rem);
+  line-height: 1.7;
+  margin: 0;
+}
+
+.eyebrow {
+  align-items: center;
+  color: var(--forest);
+  display: inline-flex;
+  font-size: 0.78rem;
+  font-weight: 900;
+  gap: 10px;
+  letter-spacing: 0.1em;
+  margin: 0 0 14px;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  background: var(--brick);
+  border-radius: 999px;
+  content: "";
+  flex: none;
+  height: 7px;
+  width: 7px;
+}
+
+.inlineLink {
+  color: var(--forest);
+  font-weight: 900;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  transition: color 180ms var(--ease);
+}
+
+.inlineLink:hover {
+  color: var(--brick);
+}
+
+/* --------------------------------------------------------------------------
+   Header — floating glass pill
+   -------------------------------------------------------------------------- */
 
 .siteHeader {
   align-items: center;
-  background: rgba(16, 16, 16, 0.94);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  color: var(--white);
+  backdrop-filter: blur(22px) saturate(1.2);
+  -webkit-backdrop-filter: blur(22px) saturate(1.2);
+  background: rgba(247, 249, 247, 0.82);
+  border: 1px solid rgba(255, 255, 252, 0.75);
+  border-radius: var(--radius);
+  box-shadow: 0 18px 50px rgba(21, 29, 26, 0.12);
   display: flex;
   gap: 24px;
   justify-content: space-between;
-  left: 0;
-  padding: 14px clamp(16px, 3vw, 42px);
+  left: clamp(12px, 3vw, 34px);
+  padding: 10px 12px 10px 16px;
   position: fixed;
-  right: 0;
-  top: 0;
-  z-index: 50;
+  right: clamp(12px, 3vw, 34px);
+  top: 14px;
+  z-index: 20;
 }
 
 .brand {
   align-items: center;
+  color: var(--ink);
   display: inline-flex;
   gap: 12px;
   min-width: max-content;
@@ -74,294 +211,430 @@ video {
 
 .brandMark {
   align-items: center;
-  background: var(--accent);
-  color: var(--white);
+  background: linear-gradient(150deg, var(--forest), var(--ink));
+  border-radius: 10px;
+  box-shadow: 0 10px 22px rgba(31, 79, 66, 0.28);
+  color: var(--paper-strong);
   display: inline-flex;
-  font-family: var(--font-display), sans-serif;
-  font-size: 0.9rem;
+  font-family: var(--font-display), Inter, sans-serif;
+  font-size: 0.95rem;
   font-weight: 900;
   height: 42px;
   justify-content: center;
+  letter-spacing: 0.02em;
   width: 42px;
-  border-radius: 8px;
 }
 
 .brandText {
   display: grid;
-  gap: 2px;
+  gap: 1px;
 }
 
 .brandText strong {
   font-size: 1rem;
-  font-weight: 800;
-  letter-spacing: 0;
+  font-weight: 850;
+  letter-spacing: -0.01em;
 }
 
 .brandText span {
-  color: rgba(255, 255, 255, 0.68);
-  font-size: 0.76rem;
+  color: var(--ink-muted);
+  font-size: 0.74rem;
+  font-weight: 600;
 }
 
 .navLinks {
   align-items: center;
   display: flex;
-  gap: 2px;
+  gap: 4px;
 }
 
 .navLinks a {
-  border-left: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.78);
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0;
-  padding: 13px 16px;
-  text-transform: none;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  font-weight: 800;
+  padding: 11px 13px;
   transition:
-    background 160ms ease,
-    color 160ms ease;
+    background 180ms var(--ease),
+    border-color 180ms var(--ease),
+    color 180ms var(--ease),
+    transform 180ms var(--ease);
 }
 
-.navLinks a:hover,
-.navLinks a.is-active {
-  background: var(--accent);
-  color: var(--white);
+.navLinks a:hover {
+  background: rgba(31, 79, 66, 0.08);
+  border-color: rgba(31, 79, 66, 0.18);
+  color: var(--ink);
+  transform: translateY(-1px);
 }
+
+.navLinks a.is-active {
+  background: linear-gradient(150deg, var(--forest), var(--ink));
+  border-color: transparent;
+  box-shadow: 0 10px 22px rgba(31, 79, 66, 0.24);
+  color: var(--paper-strong);
+}
+
+:focus-visible {
+  outline: 3px solid rgba(224, 188, 101, 0.8);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   Shell + section rhythm
+   -------------------------------------------------------------------------- */
 
 .pageShell {
-  overflow: hidden;
+  overflow: clip;
 }
 
 .hero,
 .pageHero,
 .section,
 .footer {
-  padding-left: clamp(16px, 3vw, 42px);
-  padding-right: clamp(16px, 3vw, 42px);
-  width: 100%;
-}
-
-.hero {
-  align-items: end;
-  background: var(--ink);
-  display: grid;
-  min-height: 82vh;
-  overflow: hidden;
-  padding-bottom: 70px;
-  padding-top: 132px;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
   position: relative;
-}
-
-.heroVideo {
-  aspect-ratio: 16 / 9;
-  background: #000;
-  object-fit: cover;
   width: 100%;
 }
 
-.heroVideoBackground {
-  height: 100%;
-  inset: 0;
-  object-fit: cover;
-  opacity: 0.74;
-  position: absolute;
-  width: 100%;
-  z-index: 0;
+.section {
+  padding-bottom: var(--section-y);
+  padding-top: var(--section-y);
 }
 
-.homeHero::after {
+/* Two light sections back to back double their padding into a dead gap.
+   A section that changes the background colour keeps its full breathing room. */
+.section + .section {
+  padding-top: calc(var(--section-y) * 0.55);
+}
+
+.section + .highlightSection,
+.highlightSection + .section {
+  padding-top: var(--section-y);
+}
+
+/* Drifting diagonal wash shared by light sections */
+.pageHero::before,
+.sectionWash::before {
+  animation: surfaceSlide 18s var(--ease) infinite alternate;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.42) 0%, rgba(0, 0, 0, 0.18) 42%, rgba(0, 0, 0, 0.06) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.05) 0%, rgba(16, 16, 16, 0.18) 72%, var(--paper) 100%);
+    linear-gradient(
+      110deg,
+      transparent 0 18%,
+      rgba(40, 114, 111, 0.09) 18% 29%,
+      transparent 29% 66%,
+      rgba(156, 61, 48, 0.07) 66% 78%,
+      transparent 78%
+    ),
+    linear-gradient(90deg, rgba(255, 255, 252, 0.46), transparent);
   content: "";
   inset: 0;
+  pointer-events: none;
   position: absolute;
   z-index: 0;
 }
 
-.heroContent,
-.pageHeroCopy {
-  max-width: 920px;
+.pageHero > *,
+.sectionWash > * {
   position: relative;
   z-index: 1;
 }
 
-.heroContent h1,
-.pageHeroCopy h1 {
-  color: var(--white);
-  font-family: var(--font-display), sans-serif;
-  font-size: 6rem;
-  font-weight: 900;
-  letter-spacing: 0;
-  line-height: 0.92;
-  margin: 0 0 24px;
-  max-width: 11ch;
-  text-transform: uppercase;
+@keyframes surfaceSlide {
+  0% {
+    transform: translateX(-1.5%);
+  }
+  100% {
+    transform: translateX(1.5%);
+  }
 }
 
-.heroContent p:not(.eyebrow),
-.pageHeroCopy p:not(.eyebrow) {
-  color: rgba(255, 255, 255, 0.84);
-  font-size: 1.12rem;
-  line-height: 1.65;
-  max-width: 720px;
+/* --------------------------------------------------------------------------
+   Home hero — cinematic, video-backed
+   -------------------------------------------------------------------------- */
+
+.hero {
+  align-items: center;
+  display: flex;
+  isolation: isolate;
+  min-height: 86svh;
+  overflow: hidden;
+  padding-bottom: clamp(76px, 10vw, 128px);
+  padding-top: clamp(132px, 15vw, 188px);
+}
+
+.heroVideo {
+  background: var(--ink);
+  border: 0;
+  /* The footage has strong magenta stage lighting; pulling the saturation
+     down lets it sit inside the sage/forest palette instead of fighting it. */
+  filter: saturate(0.42) contrast(1.06) brightness(0.88);
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  opacity: 0.62;
+  position: absolute;
+  width: 100%;
+  z-index: -2;
+}
+
+.hero::before {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(21, 29, 26, 0.82),
+      rgba(21, 29, 26, 0.5) 42%,
+      rgba(31, 79, 66, 0.4)
+    ),
+    repeating-linear-gradient(
+      120deg,
+      rgba(255, 255, 252, 0.16) 0 1px,
+      transparent 1px 18px
+    );
+  content: "";
+  inset: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.hero::after {
+  animation: heroBands 16s var(--ease) infinite alternate;
+  background:
+    linear-gradient(
+      108deg,
+      transparent 0 20%,
+      rgba(224, 188, 101, 0.2) 20% 27%,
+      transparent 27% 58%,
+      rgba(40, 114, 111, 0.24) 58% 70%,
+      transparent 70%
+    ),
+    linear-gradient(180deg, transparent 0 72%, var(--paper) 100%);
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+@keyframes heroBands {
+  0% {
+    transform: translateX(-2%);
+  }
+  100% {
+    transform: translateX(2%);
+  }
+}
+
+.heroContent {
+  color: var(--paper-strong);
+  max-width: 900px;
+  position: relative;
+  z-index: 2;
+}
+
+.heroContent h1 {
+  color: var(--paper-strong);
+  margin-bottom: 22px;
+  max-width: 11ch;
+}
+
+.heroContent .eyebrow {
+  color: rgba(255, 255, 252, 0.88);
+}
+
+.heroContent .eyebrow::before {
+  background: var(--honey);
+}
+
+.heroContent p:not(.eyebrow) {
+  color: rgba(255, 255, 252, 0.84);
+  max-width: 640px;
 }
 
 .heroMeta {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 26px;
+  margin-top: 28px;
 }
 
 .heroMeta span {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: var(--white);
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 10px 14px;
-  text-transform: none;
-  border-radius: 6px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 252, 0.12);
+  border: 1px solid rgba(255, 255, 252, 0.28);
+  border-radius: 999px;
+  color: var(--paper-strong);
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 10px 16px;
 }
+
+/* --------------------------------------------------------------------------
+   Interior page hero — light, misted
+   -------------------------------------------------------------------------- */
 
 .pageHero {
   align-items: center;
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(223, 236, 230, 0.92),
+      rgba(247, 249, 247, 0.96) 48%,
+      rgba(255, 255, 252, 0.86)
+    ),
+    repeating-linear-gradient(
+      112deg,
+      rgba(31, 79, 66, 0.08) 0 1px,
+      transparent 1px 22px
+    );
   display: grid;
-  gap: 42px;
-  grid-template-columns: minmax(0, 1.15fr) minmax(320px, 0.85fr);
-  min-height: 560px;
+  gap: clamp(32px, 6vw, 82px);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.8fr);
   overflow: hidden;
-  padding-bottom: 64px;
-  padding-top: 132px;
-  position: relative;
+  padding-bottom: clamp(78px, 10vw, 124px);
+  padding-top: clamp(132px, 14vw, 176px);
 }
 
-.pageHero::before {
-  background: none;
+/* Grid items default to an `auto` minimum, so a child with a large
+   min-content width can push the whole column past the viewport.
+   min-width: 0 lets these columns actually shrink. */
+.pageHeroCopy,
+.pageHeroVisual,
+.sectionText,
+.splitContent {
+  min-width: 0;
+}
+
+.pageHeroCopy {
+  max-width: 760px;
+}
+
+.pageHeroCopy h1 {
+  font-size: clamp(2.5rem, 5.2vw, 4.9rem);
+  margin-bottom: 18px;
+  max-width: 18ch;
+}
+
+.pageHeroCopy p:not(.eyebrow) {
+  max-width: 62ch;
+}
+
+/* Each section carries its own accent so the pages read as a family
+   rather than five copies of the same header. */
+.aboutHero::after,
+.booksHero::after,
+.showHero::after,
+.resumeHero::after,
+.documentsHero::after {
   content: "";
   inset: 0;
-  opacity: 0;
   pointer-events: none;
   position: absolute;
+  z-index: 0;
 }
 
-.booksHero {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+.aboutHero::after {
+  background: radial-gradient(circle at 82% 16%, rgba(154, 187, 171, 0.4), transparent 42%);
 }
 
-.showHero {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+.booksHero::after {
+  background: radial-gradient(circle at 82% 16%, rgba(224, 188, 101, 0.3), transparent 42%);
 }
 
-.resumeHero {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+.showHero::after {
+  background: radial-gradient(circle at 82% 16%, rgba(40, 114, 111, 0.24), transparent 42%);
 }
 
-.documentsHero {
-  background: linear-gradient(135deg, #0f0f0f 0%, #1a1a1a 100%);
+.resumeHero::after {
+  background: radial-gradient(circle at 82% 16%, rgba(31, 79, 66, 0.22), transparent 42%);
+}
+
+.documentsHero::after {
+  background: radial-gradient(circle at 82% 16%, rgba(156, 61, 48, 0.18), transparent 42%);
 }
 
 .pageHeroVisual {
-  align-items: center;
   display: flex;
   justify-content: flex-end;
-  position: relative;
-  z-index: 1;
 }
 
 .pageHeroVisual > * {
-  width: min(100%, 580px);
+  width: min(100%, 520px);
 }
 
-.eyebrow {
-  color: var(--accent);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-  margin: 0 0 16px;
-  text-transform: none;
-}
-
-.hero .eyebrow,
-.pageHero .eyebrow {
-  color: var(--accent-light);
-}
-
-h2,
-h3 {
-  color: var(--ink);
-  font-family: var(--font-display), sans-serif;
-  font-weight: 800;
-  letter-spacing: -0.5px;
-  line-height: 1.1;
-  margin: 0;
-  text-transform: none;
-}
-
-h2 {
-  font-size: 3.6rem;
-}
-
-h3 {
-  font-size: 1.55rem;
-}
-
-p {
-  color: var(--ink-soft);
-  font-size: 1rem;
-  line-height: 1.68;
-  margin: 0;
-}
+/* --------------------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------------------- */
 
 .buttonRow {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 28px;
+  gap: 12px;
+  margin-top: 26px;
 }
 
 .button {
   align-items: center;
-  background: var(--accent);
-  border: 2px solid var(--accent);
-  color: var(--white);
+  background: var(--ink);
+  border: 1px solid rgba(21, 29, 26, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 14px 32px rgba(21, 29, 26, 0.14);
+  color: var(--paper-strong);
+  cursor: pointer;
   display: inline-flex;
-  font-size: 0.84rem;
-  font-weight: 700;
+  font-family: inherit;
+  font-size: 0.98rem;
+  font-weight: 800;
   justify-content: center;
   min-height: 50px;
-  padding: 13px 24px;
-  text-transform: none;
-  border-radius: 8px;
+  padding: 14px 22px;
   transition:
-    background 160ms ease,
-    color 160ms ease,
-    transform 160ms ease,
-    box-shadow 160ms ease;
+    background 180ms var(--ease),
+    border-color 180ms var(--ease),
+    box-shadow 180ms var(--ease),
+    color 180ms var(--ease),
+    transform 180ms var(--ease);
 }
 
 .button:hover {
+  background: var(--forest);
+  border-color: var(--forest);
+  box-shadow: var(--shadow-soft);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(184, 149, 106, 0.3);
 }
 
 .button.secondary {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: var(--white);
+  background: rgba(31, 79, 66, 0.07);
+  border-color: rgba(31, 79, 66, 0.42);
+  box-shadow: none;
+  color: var(--forest);
 }
 
 .button.secondary:hover {
-  background: rgba(255, 255, 255, 0.25);
-  border-color: rgba(255, 255, 255, 0.4);
-  color: var(--white);
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--paper-strong);
 }
 
-.section {
-  padding-bottom: 76px;
-  padding-top: 76px;
+/* Buttons sitting on the dark home hero */
+.hero .button.secondary {
+  background: rgba(255, 255, 252, 0.14);
+  border-color: rgba(255, 255, 252, 0.5);
+  color: var(--paper-strong);
 }
+
+.hero .button.secondary:hover {
+  background: rgba(255, 255, 252, 0.94);
+  border-color: rgba(255, 255, 252, 0.94);
+  color: var(--ink);
+}
+
+/* --------------------------------------------------------------------------
+   Cards + grids
+   -------------------------------------------------------------------------- */
 
 .introGrid,
 .bookGrid,
@@ -370,29 +643,11 @@ p {
 .teamGrid,
 .highlightGrid {
   display: grid;
-  gap: 18px;
+  gap: clamp(18px, 2.2vw, 26px);
 }
 
 .introGrid {
-  background: var(--paper);
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.homeHero + .introGrid {
-  padding-top: 36px;
-}
-
-.homeHero + .introGrid .infoCard:first-child {
-  background: var(--ink);
-}
-
-.homeHero + .introGrid .infoCard:first-child h2,
-.homeHero + .introGrid .infoCard:first-child p {
-  color: var(--white);
-}
-
-.homeHero + .introGrid .infoCard:first-child .eyebrow {
-  color: var(--accent);
 }
 
 .infoCard,
@@ -402,12 +657,14 @@ p {
 .highlightCard,
 .heroPanel,
 .experienceCard {
-  background: var(--white);
+  background:
+    linear-gradient(160deg, rgba(255, 255, 252, 0.96), rgba(247, 249, 247, 0.84)),
+    var(--paper-strong);
   border: 1px solid var(--line);
-  box-shadow: var(--shadow);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-card);
   overflow: hidden;
   position: relative;
-  border-radius: 12px;
 }
 
 .infoCard,
@@ -416,9 +673,27 @@ p {
 .highlightCard,
 .experienceCard {
   transition:
-    border-color 160ms ease,
-    box-shadow 160ms ease,
-    transform 160ms ease;
+    background 240ms var(--ease),
+    border-color 240ms var(--ease),
+    box-shadow 240ms var(--ease),
+    transform 240ms var(--ease);
+}
+
+/* Gradient underline that wipes open on hover. Clipping (rather than
+   scaling) keeps the gradient's geometry fixed, so the resting sliver
+   reads as solid forest instead of a squashed rainbow. */
+.infoCard::after,
+.experienceCard::after,
+.bookCard::after {
+  background: linear-gradient(90deg, var(--forest), var(--teal) 45%, var(--honey));
+  bottom: 0;
+  clip-path: inset(0 84% 0 0);
+  content: "";
+  height: 4px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  transition: clip-path 380ms var(--ease);
 }
 
 .infoCard:hover:not(.staticCard),
@@ -426,9 +701,22 @@ p {
 .teamCard:hover,
 .highlightCard:hover,
 .experienceCard:hover {
-  border-color: var(--line-strong);
-  box-shadow: var(--shadow-strong);
-  transform: translateY(-4px);
+  border-color: rgba(31, 79, 66, 0.28);
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-6px);
+}
+
+.infoCard:hover:not(.staticCard),
+.teamCard:hover {
+  background:
+    linear-gradient(160deg, rgba(255, 255, 252, 0.98), rgba(223, 236, 230, 0.78)),
+    var(--paper-strong);
+}
+
+.infoCard:hover:not(.staticCard)::after,
+.experienceCard:hover::after,
+.bookCard:hover::after {
+  clip-path: inset(0 0 0 0);
 }
 
 .staticCard:hover {
@@ -438,35 +726,98 @@ p {
 .infoCard {
   align-content: start;
   display: grid;
-  gap: 18px;
-  min-height: 255px;
-  padding: 30px;
+  gap: 14px;
+  min-height: 288px;
+  padding: clamp(24px, 3.4vw, 38px);
 }
 
 .infoCard h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.9rem, 2.9vw, 2.9rem);
+  line-height: 1;
 }
+
+/* --------------------------------------------------------------------------
+   Split sections
+   -------------------------------------------------------------------------- */
 
 .splitSection {
   align-items: center;
-  background:
-    linear-gradient(90deg, var(--smoke) 0 50%, var(--paper) 50%),
-    var(--paper);
+  background: linear-gradient(180deg, var(--paper), rgba(223, 236, 230, 0.56));
   display: grid;
-  gap: 38px;
+  gap: clamp(36px, 6vw, 92px);
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
+/* Panel-beside-panel should share a top edge; centring only reads well
+   when one side is media and the other is copy. */
+.splitSection:has(> .notePanel + .notePanel) {
+  align-items: stretch;
+}
+
+.sectionText {
+  display: grid;
+  gap: 16px;
+  max-width: 760px;
+}
+
+.seriesHeadline {
+  font-size: clamp(1.8rem, 3vw, 3.15rem);
+  line-height: 1.08;
+  max-width: 25ch;
+}
+
+.panelHeadline {
+  font-size: clamp(1.7rem, 2.8vw, 2.9rem);
+  line-height: 1.06;
+  margin-bottom: 14px;
+  max-width: none;
+}
+
+.sectionHeader,
+.teamIntro {
+  display: grid;
+  gap: 12px;
+  margin: 0 0 clamp(32px, 4vw, 54px);
+  max-width: 900px;
+}
+
+.teamIntro h2 {
+  font-size: clamp(2rem, 4vw, 3.9rem);
+}
+
+/* --------------------------------------------------------------------------
+   Media surfaces
+   -------------------------------------------------------------------------- */
+
 .portraitFeature,
 .videoThumbnail {
-  aspect-ratio: 16 / 10;
   background: var(--ink);
-  box-shadow: var(--shadow-strong);
+  border: 1px solid rgba(21, 29, 26, 0.12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
   display: block;
-  min-height: 360px;
   overflow: hidden;
   position: relative;
-  border-radius: 12px;
+  transition:
+    box-shadow 260ms var(--ease),
+    transform 260ms var(--ease);
+}
+
+/* A person reads better in a portrait-leaning crop than a letterbox one. */
+.portraitFeature {
+  aspect-ratio: 5 / 4;
+  min-height: 420px;
+}
+
+.videoThumbnail {
+  aspect-ratio: 16 / 9;
+  min-height: 300px;
+}
+
+.portraitFeature:hover,
+.videoThumbnail:hover {
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-4px);
 }
 
 .portraitFeatureFrame {
@@ -479,6 +830,7 @@ p {
 .featuredBookCoverImage,
 .aboutPortraitImage {
   object-fit: cover;
+  transition: transform 420ms var(--ease);
 }
 
 .portraitFeatureImage,
@@ -486,78 +838,116 @@ p {
   object-position: center 12%;
 }
 
+.portraitFeature:hover .portraitFeatureImage,
+.videoThumbnail:hover .thumbnailImage {
+  transform: scale(1.045);
+}
+
 .portraitFeature::before,
 .videoThumbnail::before,
 .aboutPortraitCard::before,
 .featuredBookCover::before {
-  background: linear-gradient(180deg, rgba(16, 16, 16, 0.02), rgba(16, 16, 16, 0.52));
+  background:
+    linear-gradient(180deg, rgba(21, 29, 26, 0.04), rgba(21, 29, 26, 0.52)),
+    repeating-linear-gradient(
+      120deg,
+      rgba(255, 255, 252, 0.1) 0 1px,
+      transparent 1px 16px
+    );
   content: "";
   inset: 0;
+  pointer-events: none;
   position: absolute;
   z-index: 1;
 }
 
 .playBadge {
-  background: var(--accent);
-  bottom: 18px;
-  color: var(--white);
-  font-size: 0.76rem;
-  font-weight: 700;
-  left: 18px;
-  padding: 10px 14px;
-  position: absolute;
-  text-transform: none;
-  z-index: 2;
-  border-radius: 6px;
-}
-
-.sectionText {
-  display: grid;
-  gap: 18px;
-  max-width: 760px;
-}
-
-.seriesHeadline {
-  font-size: 3.4rem;
-  max-width: 16ch;
-}
-
-.inlineLink {
+  background: rgba(255, 255, 252, 0.94);
+  border: 1px solid rgba(255, 255, 252, 0.8);
+  border-radius: 10px;
+  bottom: 20px;
+  box-shadow: 0 14px 34px rgba(21, 29, 26, 0.18);
   color: var(--ink);
-  font-weight: 700;
-  text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 4px;
-  text-transform: none;
+  font-size: 0.8rem;
+  font-weight: 900;
+  left: 20px;
+  letter-spacing: 0.02em;
+  padding: 12px 16px;
+  position: absolute;
+  z-index: 2;
 }
+
+.aboutPortraitCard {
+  aspect-ratio: 4 / 5;
+  background: var(--ink);
+  border: 1px solid rgba(21, 29, 26, 0.12);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  position: relative;
+}
+
+/* --------------------------------------------------------------------------
+   Highlight (dark) section
+   -------------------------------------------------------------------------- */
 
 .highlightSection {
-  background: var(--ink);
+  background:
+    radial-gradient(circle at 88% 12%, rgba(224, 188, 101, 0.22), transparent 34%),
+    linear-gradient(135deg, var(--ink) 0%, var(--forest) 62%, var(--ink) 100%);
+  overflow: hidden;
 }
 
-.highlightSection h3,
+.highlightSection::before {
+  background: repeating-linear-gradient(
+    125deg,
+    rgba(255, 255, 252, 0.07) 0 1px,
+    transparent 1px 20px
+  );
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.highlightSection > * {
+  position: relative;
+  z-index: 1;
+}
+
+.highlightSection h2,
+.highlightSection h3 {
+  color: var(--paper-strong);
+}
+
 .highlightSection p {
-  color: var(--white);
+  color: rgba(255, 255, 252, 0.78);
 }
 
-.highlightSection .highlightCard {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 0.12);
-  box-shadow: none;
-  border-radius: 12px;
+.highlightSection .eyebrow {
+  color: rgba(255, 255, 252, 0.88);
 }
 
-.sectionHeader,
-.teamIntro {
-  display: grid;
-  gap: 12px;
-  margin: 0 0 36px;
-  max-width: 880px;
+.highlightSection .eyebrow::before {
+  background: var(--honey);
 }
 
 .highlightGrid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.highlightSection .highlightCard {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  background: rgba(255, 255, 252, 0.08);
+  border: 1px solid rgba(255, 255, 252, 0.16);
+  box-shadow: none;
+}
+
+.highlightSection .highlightCard:hover {
+  background: rgba(255, 255, 252, 0.14);
+  border-color: rgba(224, 188, 101, 0.55);
+  box-shadow: 0 26px 60px rgba(21, 29, 26, 0.32);
 }
 
 .highlightCard {
@@ -565,16 +955,15 @@ p {
   display: grid;
   gap: 14px;
   min-height: 220px;
-  padding: 28px;
+  padding: clamp(24px, 3vw, 32px);
 }
 
-.aboutPortraitCard {
-  aspect-ratio: 4 / 5;
-  background: var(--ink);
-  box-shadow: var(--shadow-strong);
-  overflow: hidden;
-  position: relative;
-  border-radius: 12px;
+/* --------------------------------------------------------------------------
+   Panels + lists
+   -------------------------------------------------------------------------- */
+
+.notePanel {
+  padding: clamp(24px, 4vw, 44px);
 }
 
 .teamSection,
@@ -589,29 +978,25 @@ p {
 .teamCard {
   align-content: start;
   display: grid;
-  gap: 14px;
-  min-height: 235px;
-  padding: 26px;
+  gap: 12px;
+  min-height: 220px;
+  padding: clamp(24px, 3vw, 30px);
 }
 
 .textCard h3 {
-  font-size: 1.35rem;
-}
-
-.notePanel {
-  padding: 30px;
+  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
 }
 
 .resumeList {
   display: grid;
-  gap: 16px;
+  gap: 18px;
 }
 
 .listRow {
   border-top: 1px solid var(--line);
   display: grid;
-  gap: 8px;
-  padding-top: 16px;
+  gap: 7px;
+  padding-top: 18px;
 }
 
 .listRow:first-child {
@@ -622,43 +1007,44 @@ p {
 .listRow strong,
 .skillColumn strong {
   color: var(--ink);
-  font-size: 0.98rem;
+  font-size: 1rem;
   font-weight: 900;
+  letter-spacing: -0.01em;
 }
 
 .listRow span {
   color: var(--ink-soft);
-  line-height: 1.58;
+  font-size: 0.99rem;
+  line-height: 1.62;
 }
 
-.panelHeadline {
-  font-size: 2.7rem;
-  margin-bottom: 14px;
+.heroPanel {
+  padding: clamp(24px, 3vw, 34px);
 }
+
+/* --------------------------------------------------------------------------
+   Books
+   -------------------------------------------------------------------------- */
 
 .bookGrid {
-  background: var(--paper);
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.featuredBookCover {
-  aspect-ratio: 326 / 500;
-  background: var(--ink);
-  box-shadow: var(--shadow-strong);
-  margin-left: auto;
-  max-width: 390px;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  border-radius: 12px;
+.bookCard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-height: 100%;
+  padding: clamp(24px, 3vw, 32px);
 }
 
-.bookCard {
-  align-content: start;
-  display: grid;
-  gap: 18px;
-  min-height: 100%;
-  padding: 28px;
+.bookCard > .eyebrow {
+  margin-bottom: 0;
+}
+
+.bookCard h2 {
+  font-size: clamp(1.7rem, 2.6vw, 2.5rem);
+  line-height: 1.02;
 }
 
 .bookCardImageWrap {
@@ -666,10 +1052,35 @@ p {
   justify-content: flex-start;
 }
 
+/* Covers ship at different aspect ratios; a fixed box keeps the two cards
+   aligned instead of staggering everything below them. */
 .bookCardImage {
-  box-shadow: var(--shadow);
-  height: auto;
-  width: min(100%, 220px);
+  border-radius: 10px;
+  box-shadow: 0 24px 50px rgba(21, 29, 26, 0.18), 0 3px rgba(255, 255, 252, 0.8);
+  height: clamp(240px, 21vw, 300px);
+  object-fit: cover;
+  object-position: center top;
+  transition:
+    box-shadow 280ms var(--ease),
+    transform 280ms var(--ease);
+  width: min(100%, 196px);
+}
+
+.bookCard:hover .bookCardImage {
+  box-shadow: var(--shadow-lift);
+  transform: translateY(-8px) rotate(-1deg);
+}
+
+.featuredBookCover {
+  aspect-ratio: 326 / 500;
+  background: var(--ink);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lift);
+  margin-left: auto;
+  max-width: 380px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
 .cardFooter {
@@ -679,65 +1090,37 @@ p {
   gap: 14px;
   justify-content: space-between;
   margin-top: auto;
+  padding-top: 4px;
 }
 
-.bookCard h2 {
-  font-size: 2.8rem;
-}
-
+/* This is the book's real subtitle, not a label — keep the author's
+   casing rather than shouting it. */
 .detailLine {
-  color: var(--accent);
-  font-size: 0.78rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+  color: var(--brick);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0;
   text-transform: none;
 }
 
 .statusBadge {
   align-self: start;
-  background: var(--ink);
-  color: var(--white);
-  font-size: 0.74rem;
-  font-weight: 700;
-  padding: 8px 12px;
-  text-transform: none;
-  border-radius: 6px;
+  background: rgba(31, 79, 66, 0.1);
+  border: 1px solid rgba(31, 79, 66, 0.24);
+  border-radius: 999px;
+  color: var(--forest);
+  font-size: 0.76rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  padding: 8px 14px;
 }
 
-.heroPanel {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: none;
-  color: var(--white);
-  padding: 28px;
-  border-radius: 12px;
-}
-
-.heroPanel .eyebrow,
-.heroPanel p,
-.heroPanel strong,
-.heroPanel span {
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.heroPanel .listRow {
-  border-color: rgba(255, 255, 255, 0.18);
-}
+/* --------------------------------------------------------------------------
+   Resume
+   -------------------------------------------------------------------------- */
 
 .resumeGrid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-}
-
-.resumeGrid .experienceCard:first-child,
-.resumeGrid .experienceCard:nth-child(2) {
-  background: var(--ink);
-}
-
-.resumeGrid .experienceCard:first-child h3,
-.resumeGrid .experienceCard:first-child p,
-.resumeGrid .experienceCard:nth-child(2) h3,
-.resumeGrid .experienceCard:nth-child(2) p {
-  color: var(--white);
 }
 
 .experienceCard {
@@ -745,36 +1128,33 @@ p {
   display: grid;
   gap: 10px;
   min-height: 220px;
-  padding: 26px;
+  padding: clamp(24px, 3vw, 30px);
 }
 
 .timelinePeriod {
-  color: var(--red);
+  color: var(--brick);
   font-size: 0.76rem;
   font-weight: 900;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.resumeGrid .experienceCard:first-child .timelinePeriod,
-.resumeGrid .experienceCard:nth-child(2) .timelinePeriod {
-  color: var(--accent-light);
-}
-
 .timelineOrg {
-  color: var(--ink);
+  color: var(--forest);
+  font-size: 0.98rem;
   font-weight: 900;
 }
 
 .skillColumns {
   display: grid;
-  gap: 20px;
+  gap: 22px;
 }
 
 .skillColumn {
   border-top: 1px solid var(--line);
   display: grid;
   gap: 12px;
-  padding-top: 18px;
+  padding-top: 20px;
 }
 
 .skillColumn:first-child {
@@ -789,97 +1169,275 @@ p {
 }
 
 .skillChip {
-  background: var(--smoke);
-  color: var(--ink);
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 9px 13px;
-  border-radius: 6px;
+  background: rgba(223, 236, 230, 0.7);
+  border: 1px solid rgba(31, 79, 66, 0.16);
+  border-radius: 999px;
+  color: var(--forest);
+  font-size: 0.84rem;
+  font-weight: 700;
+  padding: 9px 14px;
+  transition:
+    background 180ms var(--ease),
+    color 180ms var(--ease);
 }
 
+.skillChip:hover {
+  background: var(--forest);
+  color: var(--paper-strong);
+}
+
+/* --------------------------------------------------------------------------
+   Documents
+   -------------------------------------------------------------------------- */
+
 .documentGrid {
-  background: var(--paper);
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
 .documentGrid .bookCard {
-  min-height: 250px;
+  gap: 12px;
+  min-height: 240px;
 }
 
 .documentGrid .bookCard h2 {
-  font-size: 2rem;
+  font-size: clamp(1.35rem, 1.9vw, 1.75rem);
+  line-height: 1.14;
 }
+
+.documentGrid .bookCard .inlineLink {
+  align-self: start;
+  margin-top: auto;
+  padding-top: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   App showcase
+   -------------------------------------------------------------------------- */
+
+.appShowcaseSection {
+  align-items: center;
+  padding-bottom: var(--section-y);
+  padding-top: var(--section-y);
+}
+
+.appShowcaseImageWrap {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem;
+  width: 100%;
+}
+
+.appShowcaseImage {
+  border-radius: 2rem;
+  box-shadow: 0 32px 80px rgba(21, 29, 26, 0.24);
+  height: auto;
+  max-width: 340px;
+  object-fit: contain;
+  transition: transform 320ms var(--ease);
+  width: min(100%, 340px);
+}
+
+.appShowcaseImage:hover {
+  transform: translateY(-8px) rotate(-1deg);
+}
+
+.appShowcaseSection .splitContent {
+  align-self: center;
+  display: grid;
+  gap: 14px;
+  max-width: 720px;
+}
+
+.appShowcaseSection .splitContent .button {
+  justify-self: start;
+  margin-top: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
 
 .footer {
   align-items: center;
-  background: var(--ink);
-  color: var(--white);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 252, 0.08) 0%, rgba(255, 255, 252, 0) 28%),
+    linear-gradient(100deg, var(--ink) 0%, var(--forest) 72%, var(--brick) 140%);
+  border-top: 1px solid rgba(255, 255, 252, 0.24);
   display: flex;
+  flex-wrap: wrap;
   gap: 24px;
   justify-content: space-between;
-  padding-bottom: 32px;
-  padding-top: 32px;
+  padding-bottom: clamp(30px, 4vw, 44px);
+  padding-top: clamp(30px, 4vw, 44px);
 }
 
 .footer p,
 .footer a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 252, 0.88);
 }
 
 .footerTitle {
-  color: var(--white);
-  font-family: var(--font-display), sans-serif;
-  font-size: 2rem;
-  font-weight: 800;
+  color: var(--paper-strong);
+  font-family: var(--font-display), Inter, sans-serif;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
   line-height: 1.1;
   margin-bottom: 6px;
-  text-transform: none;
 }
 
 .footerLinks {
   align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 14px 22px;
+  gap: 14px 24px;
   justify-content: flex-end;
 }
 
 .footerLinks a {
-  font-size: 0.88rem;
-  font-weight: 700;
+  font-size: 0.9rem;
+  font-weight: 800;
   text-decoration: underline;
-  text-decoration-color: var(--accent);
-  text-underline-offset: 4px;
-  text-transform: none;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  transition: color 180ms var(--ease);
 }
 
+.footerLinks a:hover {
+  color: var(--honey);
+}
+
+/* --------------------------------------------------------------------------
+   Scroll reveal
+   -------------------------------------------------------------------------- */
+
 .motionReady .pageShell > section > *:not(.heroVideo) {
-  filter: none;
-  opacity: 1;
-  transform: translate3d(0, 18px, 0);
+  filter: blur(8px);
+  opacity: 0;
+  transform: translateY(28px);
   transition:
-    transform 760ms ease var(--reveal-delay, 0ms);
-  will-change: transform;
+    opacity 700ms var(--ease) var(--reveal-delay, 0ms),
+    filter 700ms var(--ease) var(--reveal-delay, 0ms),
+    transform 760ms var(--ease) var(--reveal-delay, 0ms);
+  will-change: transform, opacity, filter;
 }
 
 .motionReady .pageShell > section > *.is-visible:not(.heroVideo) {
+  filter: blur(0);
   opacity: 1;
-  transform: translate3d(var(--motion-x, 0), var(--motion-y, 0), 0) scale(var(--motion-scale, 1));
+  transform: translate3d(var(--motion-x, 0), var(--motion-y, 0), 0)
+    scale(var(--motion-scale, 1));
 }
 
+/* --------------------------------------------------------------------------
+   Entry gate
+   -------------------------------------------------------------------------- */
+
+.entryGate {
+  align-items: center;
+  background:
+    radial-gradient(circle at 86% 14%, rgba(224, 188, 101, 0.28), transparent 34%),
+    linear-gradient(135deg, var(--ink) 0%, var(--forest) 58%, var(--ink) 100%);
+  display: flex;
+  min-height: 100vh;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.entryGate::before {
+  background: repeating-linear-gradient(
+    125deg,
+    rgba(255, 255, 252, 0.07) 0 1px,
+    transparent 1px 20px
+  );
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+}
+
+.entryGatePanel {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  background: rgba(255, 255, 252, 0.95);
+  border: 1px solid rgba(255, 255, 252, 0.4);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lift);
+  display: grid;
+  gap: 18px;
+  margin: 0 auto;
+  max-width: 560px;
+  padding: clamp(28px, 5vw, 46px);
+  position: relative;
+  width: 100%;
+  z-index: 1;
+}
+
+.entryGateTitle {
+  font-size: clamp(2.4rem, 7vw, 3.9rem);
+  margin: 0;
+  max-width: 9ch;
+}
+
+.entryGateCopy {
+  max-width: 44ch;
+}
+
+.entryForm {
+  display: grid;
+  gap: 14px;
+}
+
+.entryLabel {
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.entryInput {
+  background: rgba(255, 255, 252, 0.94);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 1rem;
+  min-height: 56px;
+  padding: 0 16px;
+  transition:
+    background 180ms var(--ease),
+    border-color 180ms var(--ease),
+    box-shadow 180ms var(--ease);
+}
+
+.entryInput:focus {
+  background: var(--paper-strong);
+  border-color: var(--forest);
+  box-shadow: 0 0 0 4px rgba(154, 187, 171, 0.42);
+  outline: none;
+}
+
+.entryError {
+  color: var(--brick);
+  font-size: 0.95rem;
+  font-weight: 700;
+  min-height: 1.5rem;
+}
+
+.entryButton {
+  width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
 @media (max-width: 1180px) {
-  .heroContent h1,
-  .pageHeroCopy h1 {
-    font-size: 4.5rem;
-  }
-
-  h2,
-  .seriesHeadline {
-    font-size: 3rem;
-  }
-
   .pageHero {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .pageHeroVisual {
@@ -887,14 +1445,27 @@ p {
   }
 
   .pageHeroVisual > * {
-    max-width: 520px;
+    max-width: 480px;
   }
 
   .teamGrid,
   .documentGrid,
   .resumeGrid,
-  .highlightGrid {
+  .highlightGrid,
+  .introGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
+  .navLinks a {
+    font-size: 0.86rem;
+    padding: 10px 10px;
+  }
+
+  /* Shrink the tagline to buy nav space rather than dropping the text. */
+  .brandText span {
+    font-size: 0.68rem;
   }
 }
 
@@ -903,43 +1474,36 @@ p {
     align-items: flex-start;
     flex-direction: column;
     gap: 10px;
-    position: static;
+    left: 10px;
+    padding: 12px;
+    position: sticky;
+    right: 10px;
+    top: 10px;
+  }
+
+  .brandText span {
+    font-size: 0.74rem;
   }
 
   .navLinks {
     flex-wrap: wrap;
-    overflow-x: visible;
-    padding-bottom: 0;
+    justify-content: flex-start;
     width: 100%;
   }
 
   .navLinks a {
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    padding: 11px 13px;
+    padding: 9px 11px;
   }
 
-  .hero,
+  .hero {
+    min-height: 78svh;
+    padding-bottom: 64px;
+    padding-top: 84px;
+  }
+
   .pageHero {
-    min-height: auto;
-    padding-bottom: 52px;
-    padding-top: 58px;
-  }
-
-  .heroContent h1,
-  .pageHeroCopy h1 {
-    font-size: 3.25rem;
-  }
-
-  h2,
-  .seriesHeadline,
-  .panelHeadline {
-    font-size: 2.35rem;
-  }
-
-  .infoCard h2,
-  .bookCard h2,
-  .documentGrid .bookCard h2 {
-    font-size: 1.85rem;
+    padding-bottom: 66px;
+    padding-top: 46px;
   }
 
   .introGrid,
@@ -949,7 +1513,7 @@ p {
   .bookGrid,
   .resumeGrid,
   .documentGrid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .splitSection {
@@ -957,17 +1521,41 @@ p {
   }
 
   .section {
-    padding-bottom: 52px;
-    padding-top: 52px;
+    padding-bottom: 60px;
+    padding-top: 60px;
   }
 
-  .portraitFeature,
+  /* Fixed minimums leave dead space once cards go full width. */
+  .infoCard,
+  .highlightCard,
+  .teamCard,
+  .experienceCard {
+    min-height: 0;
+  }
+
+  /* A min-height on an aspect-ratio box implies a min-content WIDTH
+     (height x ratio). Once these go full width that minimum exceeds the
+     viewport and blows the column out, so let the ratio alone size them. */
+  .portraitFeature {
+    aspect-ratio: 4 / 3;
+    min-height: 0;
+  }
+
   .videoThumbnail {
-    min-height: 260px;
+    min-height: 0;
   }
 
   .featuredBookCover {
     margin-left: 0;
+  }
+
+  .appShowcaseImageWrap {
+    padding: 0 0 1.5rem;
+  }
+
+  .appShowcaseImage {
+    max-width: 280px;
+    width: min(100%, 280px);
   }
 
   .footer {
@@ -981,21 +1569,21 @@ p {
 }
 
 @media (max-width: 540px) {
-  .hero,
-  .pageHero,
-  .section,
-  .footer {
-    padding-left: 14px;
-    padding-right: 14px;
+  :root {
+    --gutter: 16px;
   }
 
   .button {
     width: 100%;
   }
 
-  .heroContent h1,
-  .pageHeroCopy h1 {
-    font-size: 2.65rem;
+  .appShowcaseImage {
+    max-width: 240px;
+    width: min(100%, 240px);
+  }
+
+  .entryGate {
+    padding: 14px;
   }
 }
 
@@ -1013,161 +1601,5 @@ p {
     filter: none;
     opacity: 1;
     transform: none;
-  }
-}
-/* Johnston Bros App Section Spacing Fix */
-
-.appShowcaseSection {
-  align-items: center;
-  min-height: 560px;
-  padding: 56px clamp(16px, 3vw, 42px);
-}
-
-.appShowcaseImageWrap {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  min-height: 420px;
-  padding: 1.5rem;
-  width: 100%;
-}
-
-.appShowcaseImage {
-  border-radius: 2rem;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.18);
-  display: block;
-  height: auto;
-  max-width: 360px;
-  object-fit: contain;
-  object-position: center;
-  width: min(100%, 360px);
-}
-
-.appShowcaseSection .splitContent {
-  align-self: center;
-  display: grid;
-  gap: 14px;
-  max-width: 720px;
-}
-
-.appShowcaseSection .splitContent h2 {
-  margin-bottom: 0;
-}
-
-.appShowcaseSection .splitContent p {
-  max-width: 700px;
-}
-
-.appShowcaseSection .button {
-  justify-self: start;
-  margin-top: 4px;
-}
-
-.entryGate {
-  align-items: center;
-  background:
-    radial-gradient(circle at top left, rgba(184, 149, 106, 0.26), transparent 30%),
-    linear-gradient(135deg, #0f0f0f 0%, #18201a 100%);
-  display: flex;
-  min-height: 100vh;
-  padding: 24px;
-}
-
-.entryGatePanel {
-  background: rgba(251, 251, 247, 0.96);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  box-shadow: var(--shadow-strong);
-  display: grid;
-  gap: 18px;
-  margin: 0 auto;
-  max-width: 560px;
-  padding: clamp(28px, 5vw, 42px);
-  width: 100%;
-  border-radius: 18px;
-}
-
-.entryGateTitle {
-  font-size: clamp(2.7rem, 8vw, 4.4rem);
-  margin: 0;
-  max-width: 8ch;
-}
-
-.entryGateCopy {
-  max-width: 44ch;
-}
-
-.entryForm {
-  display: grid;
-  gap: 14px;
-}
-
-.entryLabel {
-  color: var(--ink);
-  font-size: 0.82rem;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.entryInput {
-  background: var(--white);
-  border: 1px solid var(--line-strong);
-  color: var(--ink);
-  font-family: inherit;
-  font-size: 1rem;
-  min-height: 56px;
-  padding: 0 16px;
-  border-radius: 10px;
-}
-
-.entryInput:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 4px rgba(184, 149, 106, 0.18);
-  outline: none;
-}
-
-.entryError {
-  color: var(--red);
-  font-size: 0.95rem;
-  font-weight: 600;
-  min-height: 1.5rem;
-}
-
-.entryButton {
-  width: 100%;
-}
-
-/* Mobile spacing fix */
-
-@media (max-width: 860px) {
-  .appShowcaseSection {
-    min-height: auto;
-    padding-bottom: 52px;
-    padding-top: 52px;
-  }
-
-  .appShowcaseImageWrap {
-    min-height: auto;
-    padding: 0 0 1.5rem;
-  }
-
-  .appShowcaseImage {
-    max-width: 280px;
-    width: min(100%, 280px);
-  }
-
-  .appShowcaseSection .splitContent {
-    gap: 12px;
-  }
-}
-
-@media (max-width: 540px) {
-  .appShowcaseImage {
-    max-width: 240px;
-    width: min(100%, 240px);
-  }
-
-  .entryGate {
-    padding: 14px;
   }
 }
