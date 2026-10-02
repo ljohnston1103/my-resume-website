@@ -15,9 +15,10 @@ export default function SiteChrome({ children }) {
 
   return (
     <>
+      <a className="skipLink" href="#main-content">Skip to content</a>
       <ScrollParallax />
       <SiteHeader />
-      {children}
+      <div id="main-content" tabIndex={-1}>{children}</div>
       <footer className="footer">
         <div>
           <p className="footerTitle">Dr. Luke Johnston</p>

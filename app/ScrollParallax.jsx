@@ -19,6 +19,7 @@ export default function ScrollParallax() {
       return;
     }
 
+    const motionQuery = window.matchMedia("(min-width: 1101px) and (pointer: fine)");
     let frame = 0;
     let elements = [];
     let revealObserver;
@@ -39,6 +40,14 @@ export default function ScrollParallax() {
 
     const updateParallax = () => {
       frame = 0;
+      if (prefersReducedMotion.matches || !motionQuery.matches) {
+        elements.forEach((element) => {
+          element.style.removeProperty("--motion-x");
+          element.style.removeProperty("--motion-y");
+          element.style.removeProperty("--motion-scale");
+        });
+        return;
+      }
       const viewportHeight = window.innerHeight || 1;
       const viewportCenter = viewportHeight / 2;
 
@@ -77,12 +86,13 @@ export default function ScrollParallax() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
           }
         });
       },
       {
-        rootMargin: "0px 0px -12% 0px",
-        threshold: 0.16,
+        rootMargin: "0px 0px 40px 0px",
+        threshold: 0,
       },
     );
 

@@ -1603,3 +1603,98 @@ p {
     transform: none;
   }
 }
+
+
+/* Keep long pages reachable and mobile navigation compact. */
+html { scroll-padding-top: 112px; }
+#main-content { scroll-margin-top: 112px; }
+#main-content:focus { outline: none; }
+.skipLink {
+  position: fixed;
+  top: 12px;
+  left: 18px;
+  z-index: 100;
+  padding: 12px 18px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: var(--paper-strong);
+  transform: translateY(-180%);
+}
+.skipLink:focus { transform: translateY(0); }
+.menuToggle { display: none; }
+.motionReady .pageShell > section > *:focus-within:not(.heroVideo) {
+  opacity: 1;
+  filter: none;
+  transform: none;
+}
+.entryGate { min-height: 100svh; overflow: visible; }
+.entryInput { min-width: 0; width: 100%; }
+.footerLinks a { overflow-wrap: anywhere; }
+
+@media (max-width: 1100px) {
+  html { scroll-padding-top: 96px; }
+  #main-content { scroll-margin-top: 96px; }
+  .siteHeader {
+    position: sticky;
+    top: 10px;
+    left: auto;
+    right: auto;
+    margin: 10px;
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  .brand { min-width: 0; gap: 9px; }
+  .brandMark { flex-shrink: 0; }
+  .brandText strong { font-size: clamp(.85rem, 2.8vw, 1rem); }
+  .brandText span { font-size: .68rem; }
+  .menuToggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 9px 11px;
+    border: 1px solid var(--line-strong);
+    border-radius: 10px;
+    background: var(--paper-strong);
+    color: var(--forest);
+    font: 800 .85rem var(--font-body), sans-serif;
+    cursor: pointer;
+  }
+  .menuToggle span { font-size: 1.15rem; }
+  .menuToggle { flex-shrink: 0; }
+  .navLinks {
+    display: none;
+    width: 100%;
+    order: 3;
+    flex: 0 0 100%;
+    max-height: calc(100dvh - 112px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 6px 2px 2px;
+    border-top: 1px solid var(--line);
+  }
+  .navLinks.is-open { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .navLinks a { display: flex; align-items: center; min-height: 46px; padding: 10px 12px; }
+  .motionReady .pageShell > section > *:not(.heroVideo) {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    will-change: auto;
+  }
+}
+
+@media (max-height: 540px) {
+  .entryGate { align-items: flex-start; padding-block: 16px; }
+}
+
+@media (max-width: 380px) {
+  .brand { gap: 7px; }
+  .brandMark { width: 36px; height: 36px; }
+  .brandText strong { font-size: .82rem; }
+  .brandText span { font-size: .62rem; }
+  .menuToggle { padding-inline: 9px; gap: 6px; }
+}
