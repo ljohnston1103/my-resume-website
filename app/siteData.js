@@ -22,8 +22,8 @@ export const homeCards = [
   },
   {
     eyebrow: "Resume and Documents",
-    title: "Academic records",
-    text: "Open my resume, transcripts, and supporting degree documents.",
+    title: "Resumes and academic records",
+    text: "Open my full professional resume, curriculum developer resume, and supporting degree records.",
     href: "/documents",
   },
 ];
@@ -39,18 +39,18 @@ export const homeHighlights = [
   },
   {
     title: "Academic records",
-    text: "Visitors can open my resume, Luther Rice DMin transcript, status sheet, and degree transcripts in one place.",
+    text: "Open both resume versions, the Luther Rice DMin transcript and status sheet, and supporting degree transcripts.",
   },
 ];
 
 export const aboutHighlights = [
   {
     title: "Ministry leadership",
-    text: "Youth work, evangelism, discipleship systems, training, outreach, and church support.",
+    text: "Youth and adult teaching, discipleship, evangelism training, missions preparation, outreach, and volunteer coordination.",
   },
   {
     title: "Biblical teaching",
-    text: "Bible exposition, curriculum writing, structured teaching, and practical communication.",
+    text: "Seven years teaching ages 6–11 and five years teaching ages 12–19, with curriculum, student resources, and teacher materials.",
   },
   {
     title: "Writing and publishing",
@@ -58,11 +58,15 @@ export const aboutHighlights = [
   },
   {
     title: "Digital media",
-    text: "Video editing, web management, platform setup, branding help, and online content delivery.",
+    text: "Podcast and video content, ministry websites, Bible-study resources, and practical AI-assisted production.",
   },
 ];
 
 export const aboutFacts = [
+  {
+    title: "Teaching experience",
+    text: "I have 7 years of experience teaching children ages 6–11 and 5 years teaching students ages 12–19, alongside adult training and individual discipleship.",
+  },
   {
     title: "Current ministry role",
     text: "I serve as Youth and Discipleship Pastor at Millheim Baptist Church, leading youth ministry, discipleship systems, curriculum, training, and outreach.",
@@ -73,11 +77,15 @@ export const aboutFacts = [
   },
   {
     title: "Current media work",
-    text: "I serve as a Content Creator with JohnstonBros, helping plan, record, edit, and publish faith-centered podcast and video content.",
+    text: "I cofounded JohnstonBros and help plan, record, edit, and publish faith-centered podcast and video content.",
   },
   {
     title: "Current academic work",
-    text: "I am currently pursuing the Doctor of Ministry through Luther Rice College & Seminary. My updated transcript shows 18 completed Luther Rice hours and a 3.83 GPA.",
+    text: "I am pursuing the Doctor of Ministry at Luther Rice College & Seminary, plus the Master of Arts in Church Ministry and Bachelor of Science in Biblical Studies at Mission University. All three have an expected completion of Spring 2027.",
+  },
+  {
+    title: "Missions preparation",
+    text: "I adapted and prepared teacher and participant materials for a six-week Portland mission-team training schedule in 2025, including cultural orientation, gospel conversations, roleplay, safety, and trip logistics.",
   },
 ];
 
@@ -137,33 +145,57 @@ export const showHighlights = [
 export const experience = [
   {
     period: "January 2026 - Present",
-    title: "Content Creator",
+    title: "Cofounder and Content Creator",
     organization: "JohnstonBros",
-    text: "Plan and produce faith-centered podcast and video content, including episode ideas, recording, editing, and online publishing.",
+    text: "Plan educational podcast and video topics, organize material, and contribute to recording, editing, publication, website content, and digital presentation.",
   },
   {
     period: "May 2025 - Present",
     title: "Youth / Discipleship Pastor",
     organization: "Millheim Baptist Church",
-    text: "Lead youth ministry, discipleship systems, curriculum, churchwide training, events, and outreach coordination.",
+    text: "Develop and teach biblical curriculum, mentor students, and coordinate youth activities, outreach, and volunteers. Established one-to-one student discipleship and developed curriculum for a churchwide one-to-one discipleship class.",
   },
   {
     period: "September 2025 - Present",
-    title: "Author",
-    organization: "Independent publication",
-    text: "Research, write, edit, format, and prepare long-form biblical content for public readership.",
+    title: "Author and Independent Publisher",
+    organization: "Bible books and teaching resources",
+    text: "Research, write, revise, format, publish, and promote Bible books and teaching resources, explaining complex biblical and historical subjects for defined audiences.",
   },
   {
     period: "October 2020 - Present",
     title: "Account Representative",
     organization: "State Farm",
-    text: "Manage client accounts, resolve service issues, and build trust through retention-focused communication.",
+    text: "Manage customer relationships and ongoing client accounts, respond to account and service questions, and coordinate issue resolution with colleagues.",
   },
   {
     period: "April 2022 - October 2025",
     title: "Youth / Evangelism Director",
     organization: "Greentown Baptist Church",
-    text: "Built curriculum, led outreach events, trained adults and students in evangelism, and strengthened discipleship systems.",
+    text: "Created youth curriculum and recurring Bible studies, designed evangelism training, and trained hundreds of adults and students. Organized outreach, camps, retreats, activities, and volunteers. Earlier evangelism leadership began in February 2019.",
+  },
+  {
+    period: "2025",
+    title: "Missions Training Preparation",
+    organization: "Portland mission preparation",
+    text: "Adapted and prepared teacher and participant resources for a six-week mission-team training schedule in May and June 2025. Materials address cultural orientation, gospel conversations, roleplay, safety, travel logistics, and team devotions.",
+  },
+  {
+    period: "June 2016 - June 2018",
+    title: "Lead Sales Agent",
+    organization: "Buffalo Bills Premium Snacks",
+    text: "Prospected for customers, developed and maintained accounts, set sales objectives, and organized sales activity around customer needs and product availability. Supported expansion into additional markets.",
+  },
+  {
+    period: "Ongoing project work",
+    title: "Digital Resources and Website Development",
+    organization: "Ministry and independent projects",
+    text: "Develop and direct ministry websites and Bible-study resources, including work on JohnstonBros, the Greentown Bible Institute website, and Eternal Word resources. Organize content, shape presentation, and review usability with AI-assisted production tools.",
+  },
+  {
+    period: "In development during 2026",
+    title: "Ministry Services and AI Training",
+    organization: "Deploy 3:16 and Learn AI Advisory",
+    text: "Develop church website service concepts and outreach materials through Deploy 3:16. Develop practical AI guidance, training, and written plans for churches and ministry teams through Learn AI Advisory.",
   },
 ];
 
@@ -177,6 +209,8 @@ export const skillGroups = [
       "Curriculum development",
       "Discipleship",
       "Evangelism training",
+      "Missions preparation",
+      "Student and teacher resources",
     ],
   },
   {
@@ -188,6 +222,8 @@ export const skillGroups = [
       "Strategic planning",
       "Public speaking",
       "Volunteer coordination",
+      "Customer account service",
+      "Event planning",
     ],
   },
   {
@@ -199,84 +235,110 @@ export const skillGroups = [
       "Digital marketing",
       "Brand support",
       "Online publishing",
+      "Research and editing",
+      "AI-assisted production",
     ],
   },
 ];
 
 export const degrees = [
   {
-    degree: "Associate of Biblical Studies",
-    school: "Baptist Bible College",
-    location: "Springfield, MO",
-    note: "Undergraduate biblical studies training.",
-  },
-  {
-    degree: "Master of Divinity",
-    school: "Andersonville Theological Seminary",
-    location: "Camilla, GA",
-    note: "Pastoral Leadership. Distinction. GPA 3.82.",
-  },
-  {
-    degree: "Doctor of Educational Ministry",
-    school: "Andersonville Theological Seminary",
-    location: "Camilla, GA",
-    note: "Cum Laude. GPA 3.68.",
-  },
-  {
-    degree: "PhD in Biblical Studies",
-    school: "Queens College of Theology",
-    location: "Charlotte, NC",
-    note: "Summa Cum Laude. GPA 4.00.",
-  },
-  {
     degree: "Doctor of Ministry",
     school: "Luther Rice College & Seminary",
     location: "Lithonia, GA",
-    note: "In progress. 18 Luther Rice hours completed. Current GPA 3.83. Expected graduation: June 2027.",
+    note: "In progress. Expected completion Spring 2027. Doctoral ministry project on one-to-one discipleship at Millheim Baptist Church.",
+  },
+  {
+    degree: "Master of Arts in Church Ministry",
+    school: "Mission University",
+    location: "Springfield, MO",
+    note: "In progress. Expected completion Spring 2027.",
+  },
+  {
+    degree: "Bachelor of Science in Biblical Studies",
+    school: "Mission University",
+    location: "Springfield, MO",
+    note: "In progress. Expected completion Spring 2027.",
+  },
+  {
+    degree: "Master of Divinity in Pastoral Leadership",
+    school: "Andersonville Theological Seminary",
+    location: "Camilla, GA",
+    note: "Completed December 19, 2025.",
+  },
+  {
+    degree: "Doctor of Educational Ministry in Pastoral Leadership",
+    school: "Andersonville Theological Seminary",
+    location: "Camilla, GA",
+    note: "Completed October 25, 2024.",
+  },
+  {
+    degree: "Doctor of Philosophy in Biblical Studies",
+    school: "Queens College of Theology",
+    location: "Charlotte, NC",
+    note: "Completed January 15, 2025.",
+  },
+  {
+    degree: "Doctor of Biblical Exposition",
+    school: "Andersonville Theological Seminary",
+    location: "Camilla, GA",
+    note: "Completed October 25, 2024.",
+  },
+  {
+    degree: "Associate of Arts in Biblical Studies",
+    school: "Baptist Bible College, now Mission University",
+    location: "Springfield, MO",
+    note: "Completed. Foundational biblical, theological, and general education study.",
   },
 ];
 
 export const documents = [
   {
     badge: "PDF",
-    title: "Resume PDF",
-    text: "Current two-page resume with ministry, authorship, content creation, and professional experience.",
+    title: "Full Professional Resume",
+    text: "Four-page resume covering teaching, ministry, missions preparation, business, publishing, digital work, skills, and education.",
     href: "/documents/luke-johnston-resume.pdf",
   },
   {
     badge: "PDF",
+    title: "Curriculum Developer Resume",
+    text: "Two-page resume focused on curriculum development, teaching experience, training materials, publishing, and education.",
+    href: "/documents/luke-johnston-curriculum-resume.pdf",
+  },
+  {
+    badge: "PDF",
     title: "Luther Rice DMin Transcript",
-    text: "Updated unofficial Doctor of Ministry transcript showing 18 completed Luther Rice hours and a 3.83 GPA.",
+    text: "Unofficial Doctor of Ministry transcript retained among the supporting academic records.",
     href: "/documents/luther-rice-dmin-transcript.pdf",
   },
   {
     badge: "PDF",
     title: "Doctor of Ministry Status Sheet",
-    text: "Luther Rice status sheet showing current Doctor of Ministry progress and completed coursework.",
+    text: "Luther Rice status sheet documenting Doctor of Ministry coursework and progress when issued.",
     href: "/documents/luther-rice-status-sheet.pdf",
   },
   {
     badge: "PDF",
     title: "MDiv Transcript",
-    text: "Master of Divinity in Pastoral Leadership. Distinction. GPA 3.82.",
+    text: "Master of Divinity in Pastoral Leadership academic record.",
     href: "/documents/mdiv-transcript.pdf",
   },
   {
     badge: "PDF",
     title: "Queens College PhD Transcript",
-    text: "Doctor of Philosophy in Biblical Studies. Summa Cum Laude. GPA 4.00.",
+    text: "Doctor of Philosophy in Biblical Studies academic record.",
     href: "/documents/queens-college-phd-transcript.pdf",
   },
   {
     badge: "PDF",
     title: "Andersonville DEdMin Transcript",
-    text: "Doctor of Educational Ministry. Cum Laude. GPA 3.68.",
+    text: "Doctor of Educational Ministry in Pastoral Leadership academic record.",
     href: "/documents/andersonville-dedmin-transcript.pdf",
   },
   {
     badge: "PDF",
     title: "Andersonville DBExposition Transcript",
-    text: "Doctor of Biblical Exposition. Cum Laude. GPA 3.55.",
+    text: "Doctor of Biblical Exposition academic record.",
     href: "/documents/andersonville-dbexposition-transcript.pdf",
   },
 ];

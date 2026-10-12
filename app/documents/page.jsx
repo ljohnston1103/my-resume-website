@@ -11,8 +11,8 @@ export default function DocumentsPage() {
       <PageHero
         className="documentsHero"
         eyebrow="Documents"
-        title="Resume, transcripts, and ministry degree records."
-        lead="This page includes my resume, updated Luther Rice DMin transcript, Doctor of Ministry status sheet, and degree transcripts in PDF format."
+        title="Professional resumes and academic records."
+        lead="Choose the full professional resume or the focused curriculum developer resume. Supporting transcripts and degree records are also available below."
         actions={
           <>
             <a
@@ -21,15 +21,15 @@ export default function DocumentsPage() {
               target="_blank"
               rel="noreferrer"
             >
-              Resume PDF
+              Full Professional Resume
             </a>
             <a
               className="button secondary"
-              href="/documents/luther-rice-dmin-transcript.pdf"
+              href="/documents/luke-johnston-curriculum-resume.pdf"
               target="_blank"
               rel="noreferrer"
             >
-              DMin Transcript
+              Curriculum Developer Resume
             </a>
             <a
               className="button secondary"

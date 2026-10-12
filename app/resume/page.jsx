@@ -12,8 +12,8 @@ export default function ResumePage() {
       <PageHero
         className="resumeHero"
         eyebrow="Resume"
-        title="Resume, ministry experience, skills, and degrees."
-        lead="This page gives a quick look at my work history, ministry background, key skills, academic training, and current Luther Rice DMin progress."
+        title="Teaching, curriculum, ministry, and professional experience."
+        lead="Explore my work in education, missions preparation, business, publishing, and digital resources, with completed education and three degrees expected in Spring 2027."
         actions={
           <>
             <a
@@ -22,7 +22,15 @@ export default function ResumePage() {
               target="_blank"
               rel="noreferrer"
             >
-              View Resume PDF
+              Full Professional Resume
+            </a>
+            <a
+              className="button secondary"
+              href="/documents/luke-johnston-curriculum-resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Curriculum Developer Resume
             </a>
             <Link className="button secondary" href="/documents">
               Supporting Documents
@@ -34,20 +42,20 @@ export default function ResumePage() {
           <p className="eyebrow">Resume Snapshot</p>
           <div className="resumeList">
             <div className="listRow">
-              <strong>Ministry leadership</strong>
-              <span>Youth, discipleship, evangelism, training, outreach, and curriculum work.</span>
+              <strong>Teaching experience</strong>
+              <span>7 years teaching children ages 6–11 and 5 years teaching students ages 12–19, plus adult training and discipleship.</span>
             </div>
             <div className="listRow">
               <strong>Professional background</strong>
-              <span>Account management, client communication, and relationship-building through State Farm.</span>
+              <span>Customer account service, sales, volunteer coordination, ministry leadership, and missions preparation.</span>
             </div>
             <div className="listRow">
               <strong>Creative work</strong>
               <span>Writing, publishing, editing, website management, and media production.</span>
             </div>
             <div className="listRow">
-              <strong>DMin progress</strong>
-              <span>Luther Rice Doctor of Ministry work currently shows 18 completed hours and a 3.83 GPA.</span>
+              <strong>Education in progress</strong>
+              <span>Luther Rice Doctor of Ministry and Mission University Master of Arts in Church Ministry and Bachelor of Science in Biblical Studies. Expected completion Spring 2027.</span>
             </div>
           </div>
         </div>
@@ -56,7 +64,7 @@ export default function ResumePage() {
       <section className="section resumeExperienceSection">
         <div className="teamIntro">
           <p className="eyebrow">Experience Highlights</p>
-          <h2>Recent ministry, media, writing, and professional experience.</h2>
+          <h2>Teaching, training, leadership, business, and creative work.</h2>
         </div>
         <div className="resumeGrid">
           {experience.map((item) => (

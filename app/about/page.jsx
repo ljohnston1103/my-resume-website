@@ -13,8 +13,8 @@ export default function AboutPage() {
       <PageHero
         className="aboutHero"
         eyebrow="About Dr. Luke Johnston"
-        title="Pastor, teacher, author, and ministry leader."
-        lead="Learn more about my ministry calling, teaching work, published books, JohnstonBros media role, and academic background."
+        title="Teacher, curriculum developer, author, and ministry leader."
+        lead="I bring experience in children’s and youth teaching, adult training, missions preparation, business, publishing, and digital resources."
         actions={
           <>
             <Link className="button" href="/resume">
@@ -40,7 +40,7 @@ export default function AboutPage() {
       <section className="section teamSection">
         <div className="teamIntro">
           <p className="eyebrow">Highlights</p>
-          <h2>Key areas of ministry, teaching, writing, and media work.</h2>
+          <h2>Teaching, ministry leadership, writing, and digital work.</h2>
         </div>
         <div className="teamGrid">
           {aboutHighlights.map((item) => (
@@ -68,8 +68,10 @@ export default function AboutPage() {
           <p className="eyebrow">Overview</p>
           <h2 className="panelHeadline">What this site brings together.</h2>
           <p>
-            This site brings together my ministry background, published books,
-            JohnstonBros media work, resume, and academic records in one place.
+            My work connects curriculum and teaching with individual discipleship,
+            volunteer development, missions preparation, and practical resources.
+            I also bring experience in customer account service, sales, independent
+            publishing, podcast and video content, and ministry websites.
           </p>
         </div>
       </section>
