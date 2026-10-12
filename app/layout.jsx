@@ -1,40 +1,42 @@
-import { Hanken_Grotesk, Literata } from "next/font/google";
+import { Geist, Instrument_Serif } from "next/font/google";
 import SiteChrome from "./components/SiteChrome";
+import { person } from "./siteData";
 import "./globals.css";
 
-// Literata, a book face, carries headings and figures. Hanken Grotesk
-// carries reading text and interface. Both are variable fonts, self-hosted
-// by next/font at build time; no request leaves the site at runtime.
-const serif = Literata({
+// Instrument Serif sets display headings; Geist sets reading text and
+// interface. Both are self-hosted by next/font at build time.
+const display = Instrument_Serif({
   subsets: ["latin"],
-  variable: "--font-serif",
+  weight: "400",
+  style: ["normal", "italic"],
+  variable: "--font-display",
   display: "swap",
-  axes: ["opsz"],
 });
 
-const sans = Hanken_Grotesk({
+const sans = Geist({
   subsets: ["latin"],
   variable: "--font-sans",
   display: "swap",
 });
 
 export const metadata = {
+  metadataBase: new URL(person.site),
   title: {
-    default: "Luke Johnston",
+    default: "Luke Johnston | Curriculum, teaching, and Bible resources",
     template: "%s | Luke Johnston",
   },
   description:
-    "Luke Johnston develops curriculum and teaching resources, leads youth and discipleship ministries, writes and publishes books, and creates digital content.",
+    "Luke Johnston’s curriculum, teaching series, books, and Bible-study apps and websites, with his resume, CV, and curriculum documents.",
 };
 
 export const viewport = {
-  themeColor: "#f7f9f8",
+  themeColor: "#102039",
   colorScheme: "light",
 };
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${display.variable} ${sans.variable}`}>
       <body>
         <SiteChrome>{children}</SiteChrome>
       </body>

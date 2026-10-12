@@ -50,7 +50,8 @@ export const portfolio = [
       "Teacher answer support",
       "Practical biblical application"
     ],
-    "links": []
+    "links": [],
+    "scope": "Final teacher edition; a matching final student edition is not included."
   },
   {
     "id": "C04",
@@ -64,7 +65,8 @@ export const portfolio = [
       "Biblical narrative instruction",
       "Teacher and student editions"
     ],
-    "links": []
+    "links": [],
+    "scope": "The primary PDF is the final teacher edition. The separate student companion is an earlier edition."
   },
   {
     "id": "C05",
@@ -78,7 +80,8 @@ export const portfolio = [
       "Student activities and instructor support",
       "Book-to-course adaptation"
     ],
-    "links": []
+    "links": [],
+    "scope": "Instructor edition, with a separate student workbook available below."
   },
   {
     "id": "S01",
@@ -200,8 +203,8 @@ export const portfolio = [
     "category": "Teaching series",
     "title": "John SOAP Bible Study",
     "kind": "guided-study sequence",
-    "summary": "Chapter-study notes, cross-reference resources, and presentations using the SOAP study approach.",
-    "role": "Bible teaching and study-resource preparation.",
+    "summary": "Available John chapter studies, cross-reference worksheets, and presentations using the SOAP study approach. Standalone studies for chapters 11, 17, and 20 are not included.",
+    "role": "Bible teaching and guided-study resource preparation.",
     "shows": [],
     "links": []
   },
@@ -280,10 +283,11 @@ export const portfolio = [
     "category": "Missions and training",
     "title": "Portland Mission Team Training",
     "kind": "missions training adaptation",
-    "summary": "Teacher and participant resources adapted for a six-week mission-team preparation schedule in 2025, including orientation, gospel conversations, roleplay, safety, and team devotions.",
-    "role": "Training preparation and adaptation from an earlier mission-team template.",
+    "summary": "Instructional material and encouragement verses prepared for a six-week mission-team preparation schedule in 2025, including gospel conversations, anticipated questions, and roleplay.",
+    "role": "Training prepared and adapted by Luke Johnston from a mission-team training template credited to Jay Baughman; original source credits retained.",
     "shows": [],
-    "links": []
+    "links": [],
+    "scope": "The available instructional text and encouragement verses are included. Travel administration and the security appendix are omitted. The six-week plan includes five training meetings and a family gathering."
   },
   {
     "id": "M04",
@@ -300,7 +304,7 @@ export const portfolio = [
     "category": "Missions and training",
     "title": "Church Training Pathway",
     "kind": "presentation/learning pathway",
-    "summary": "A click-through presentation showing a church training progression.",
+    "summary": "A four-slide presentation showing a church training progression. The PDF provides a static view; the original click-through presentation is in the source files.",
     "role": "Training-pathway organization and presentation design.",
     "shows": [],
     "links": []
@@ -310,8 +314,8 @@ export const portfolio = [
     "category": "Teaching and design samples",
     "title": "Selected stand-alone Bible lessons",
     "kind": "lesson collection",
-    "summary": "A collection of individual Bible lessons, children’s activities, worksheets, teacher notes, student resources, and presentations.",
-    "role": "Teaching and lesson preparation; individual resources retain their source credits.",
+    "summary": "Stand-alone Bible lessons, children’s activities, worksheets, teacher notes, student resources, and presentations.",
+    "role": "Original and adapted lesson preparation, with teacher and student resources and source credits retained. The JBI demonstration applies the established Seven Laws of the Teacher method.",
     "shows": [],
     "links": []
   },

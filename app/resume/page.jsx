@@ -1,19 +1,24 @@
-import PageHeader from "../components/PageHeader";
+import Link from "next/link";
+import { anyFile } from "../components/DocRow";
+import KeyDocuments from "../components/KeyDocuments";
+import PageIntro from "../components/PageIntro";
 import ResumeEntry from "../components/ResumeEntry";
-import ResumeLinks from "../components/ResumeLinks";
-import TeachingRange from "../components/TeachingRange";
+import TeachingStats from "../components/TeachingStats";
 import {
   currentRoles,
   digitalWork,
   educationAdditional,
   educationCompleted,
   educationInProgress,
+  keyDocuments,
   missions,
   person,
   previousRoles,
   professionalDevelopment,
   skillGroups,
 } from "../siteData";
+
+export const dynamic = "force-static";
 
 export const metadata = {
   title: "Experience",
@@ -49,9 +54,11 @@ function EntryGroup({ entries, level = 3 }) {
 }
 
 export default function ExperiencePage() {
+  const resumeDocs = keyDocuments.filter((doc) => doc.id === "resume" || doc.id === "cv");
+
   return (
     <main>
-      <PageHeader title="Experience and education" lead={person.intro}>
+      <PageIntro title="Experience and education" lead={person.intro}>
         <dl className="contactList">
           <div>
             <dt>Location</dt>
@@ -74,8 +81,15 @@ export default function ExperiencePage() {
             </dd>
           </div>
         </dl>
-        <ResumeLinks />
-      </PageHeader>
+      </PageIntro>
+
+      {anyFile(resumeDocs.map((doc) => doc.href)) ? (
+        <section className="band bandNavy slimBand" aria-label="Resume and CV">
+          <div className="wrap">
+            <KeyDocuments tone="dark" documents={resumeDocs} headingLevel={2} />
+          </div>
+        </section>
+      ) : null}
 
       <div className="wrap resumeLayout">
         <nav className="pageNav" aria-label="On this page">
@@ -91,35 +105,42 @@ export default function ExperiencePage() {
 
         <div className="resumeBody">
           <section id="teaching" className="resumeSection" aria-labelledby="teaching-title">
-            <h2 id="teaching-title" className="sectionTitle">
+            <h2 id="teaching-title" className="resumeHeading">
               Teaching
             </h2>
-            <TeachingRange />
+            <TeachingStats />
+            <p className="resumeAside">
+              Curriculum, series, and training materials are on the{" "}
+              <Link className="textLink" href="/curriculum">
+                Curriculum
+              </Link>{" "}
+              page.
+            </p>
           </section>
 
           <section id="current" className="resumeSection" aria-labelledby="current-title">
-            <h2 id="current-title" className="sectionTitle">
+            <h2 id="current-title" className="resumeHeading">
               Current roles
             </h2>
             <EntryGroup entries={currentRoles} />
           </section>
 
           <section id="previous" className="resumeSection" aria-labelledby="previous-title">
-            <h2 id="previous-title" className="sectionTitle">
+            <h2 id="previous-title" className="resumeHeading">
               Previous roles
             </h2>
             <EntryGroup entries={previousRoles} />
           </section>
 
           <section id="missions" className="resumeSection" aria-labelledby="missions-title">
-            <h2 id="missions-title" className="sectionTitle">
+            <h2 id="missions-title" className="resumeHeading">
               Missions training and preparation
             </h2>
             <EntryGroup entries={missions} />
           </section>
 
           <section id="digital" className="resumeSection" aria-labelledby="digital-title">
-            <h2 id="digital-title" className="sectionTitle">
+            <h2 id="digital-title" className="resumeHeading">
               Digital projects
             </h2>
             <p className="bodyText">{digitalWork.summary}</p>
@@ -135,10 +156,17 @@ export default function ExperiencePage() {
               <span className="toolLabel">Tools used in project work</span>{" "}
               {digitalWork.tools.join(", ")}.
             </p>
+            <p className="resumeAside">
+              See the work on the{" "}
+              <Link className="textLink" href="/digital">
+                Apps and websites
+              </Link>{" "}
+              page.
+            </p>
           </section>
 
           <section id="education" className="resumeSection" aria-labelledby="education-title">
-            <h2 id="education-title" className="sectionTitle">
+            <h2 id="education-title" className="resumeHeading">
               Education
             </h2>
             <h3 className="groupTitle">In progress</h3>
@@ -150,14 +178,14 @@ export default function ExperiencePage() {
           </section>
 
           <section id="development" className="resumeSection" aria-labelledby="development-title">
-            <h2 id="development-title" className="sectionTitle">
+            <h2 id="development-title" className="resumeHeading">
               Professional development
             </h2>
             <EntryGroup entries={professionalDevelopment} />
           </section>
 
           <section id="skills" className="resumeSection" aria-labelledby="skills-title">
-            <h2 id="skills-title" className="sectionTitle">
+            <h2 id="skills-title" className="resumeHeading">
               Skills
             </h2>
             <dl className="skillList">

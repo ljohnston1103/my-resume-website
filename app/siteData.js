@@ -1,55 +1,82 @@
-// Site content. Every fact here comes from the verified resume content brief
-// (October 12, 2026) or from the existing published site. Keep it that way:
-// anything new needs Luke's confirmation before it goes in this file.
-//
-// Portfolio selection was approved by Luke on October 12, 2026.
-// Editorial metadata is maintained in portfolioData.js.
+// Site content. Facts come from the verified resume content brief
+// (October 12, 2026), the approved portfolio selection (portfolioData.js),
+// and the existing published site. Keep it that way: anything new needs
+// Luke's confirmation before it goes in this file.
 
 export const person = {
   name: "Luke Johnston",
-  role: "Curriculum developer and teacher",
+  headline: "I write curriculum, teach the Bible, and build Bible-study resources.",
   location: "Northeast Ohio",
   email: "luke.johnston1103@gmail.com",
   phone: "330-814-2764",
   phoneHref: "tel:+13308142764",
+  site: "https://drlukejohnston.com",
   portrait: "/luke-johnston-enhanced.png",
+  heroVideo: "/hero-video.mp4",
   intro:
     "I develop curriculum and teaching resources, lead youth and discipleship ministries, write and publish books, and create digital content. My experience also includes insurance account service, sales, missions preparation, and volunteer coordination.",
 };
 
 /* Navigation ------------------------------------------------------------ */
 
-// Primary navigation. The URLs are the existing routes; only the labels changed.
+// Every older URL still works. /curriculum and /digital are new.
 export const navItems = [
-  { label: "Work", href: "/books" },
+  { label: "Curriculum", href: "/curriculum" },
+  { label: "Books", href: "/books" },
+  { label: "Apps & Websites", href: "/digital" },
   { label: "Experience", href: "/resume" },
   { label: "Resume", href: "/documents" },
 ];
 
-// Supporting routes, reachable from the footer.
 export const footerLinks = [
   { label: "About", href: "/about" },
   { label: "Media", href: "/show" },
+  { label: "All downloads", href: "/documents" },
   { label: "Academic records", href: "/documents#records" },
 ];
 
-/* Resume files ---------------------------------------------------------- */
+/* Key documents --------------------------------------------------------- */
 
-export const resumeFiles = [
+// Each document shows View and Download buttons only when its file is
+// present in public/ at build time (see app/_lib/publicFiles.js).
+// `pages` is optional; fill it in from the final files.
+export const keyDocuments = [
   {
-    id: "full",
-    label: "Full professional resume",
+    id: "resume",
+    label: "Professional resume",
+    description: "The resume to send with an application.",
     href: "/documents/luke-johnston-resume.pdf",
-    description:
-      "Comprehensive resume covering work history, teaching, missions training, education, professional development, and skills.",
+    downloadName: "Luke-Johnston-Resume.pdf",
+    pages: 3,
+  },
+  {
+    id: "cv",
+    label: "Comprehensive CV",
+    description: "The thorough CV, for a complete record.",
+    href: "/documents/luke-johnston-comprehensive-cv.pdf",
+    downloadName: "Luke-Johnston-Comprehensive-CV.pdf",
     pages: 4,
   },
   {
-    id: "curriculum",
-    label: "Curriculum developer resume",
-    href: "/documents/luke-johnston-curriculum-resume.pdf",
-    description: "Curriculum development and teaching experience in a shorter format.",
-    pages: 2,
+    id: "portfolio",
+    label: "Curriculum portfolio",
+    description: "29 curriculum and teaching collections, including five flagship curricula, with a linked table of contents.",
+    href: "/documents/luke-johnston-curriculum-portfolio.pdf",
+    downloadName: "Luke-Johnston-Curriculum-Portfolio.pdf",
+    pages: 1627,
+  },
+];
+
+// Shown on the Resume page only if the file is present. Remove this entry if
+// the file is out of date.
+export const extraDocuments = [
+  {
+    id: "portfolio-overview",
+    label: "Portfolio overview",
+    description: "A seven-page introduction and linked guide to the curricula, books, and digital projects.",
+    href: "/documents/luke-johnston-portfolio-overview.pdf",
+    downloadName: "Luke-Johnston-Portfolio-Overview.pdf",
+    pages: 7,
   },
 ];
 
@@ -58,42 +85,14 @@ export const resumeFiles = [
 // The two age-group figures are separate and may overlap.
 // Never add them together.
 export const teaching = {
-  // Age axis used by the chart. `end` is exclusive, so 19-year-olds fill
-  // the last unit.
-  axis: { start: 6, end: 20 },
   groups: [
-    { id: "children", label: "Children", ages: "ages 6–11", from: 6, to: 11, years: 7 },
-    { id: "youth", label: "Youth", ages: "ages 12–19", from: 12, to: 19, years: 5 },
+    { id: "children", years: 7, label: "Teaching children", ages: "ages 6–11" },
+    { id: "youth", years: 5, label: "Teaching youth", ages: "ages 12–19" },
   ],
   adults:
     "Adult teaching, evangelism training, individual discipleship, and volunteer development.",
-  note: "Bars show the ages taught, not dates. Years are counted separately for each age group and may overlap.",
+  note: "Years are counted separately for each age group and may overlap.",
 };
-
-/* Portfolio ------------------------------------------------------------- */
-
-export { portfolio } from "./portfolioData";
-
-// Curriculum and training work done inside ministry roles. Described only;
-// no files are published from this list.
-export const curriculumWork = [
-  {
-    text: "Curriculum for a churchwide one-to-one discipleship class",
-    where: "Millheim Baptist Church",
-  },
-  {
-    text: "Biblical curriculum for youth teaching",
-    where: "Millheim Baptist Church",
-  },
-  {
-    text: "Youth curriculum, recurring Bible studies, and evangelism training materials",
-    where: "Greentown Baptist Church",
-  },
-  {
-    text: "Teacher and participant materials adapted and prepared for a six-week mission-team training schedule",
-    where: "Portland mission preparation, 2025",
-  },
-];
 
 /* Experience ------------------------------------------------------------ */
 

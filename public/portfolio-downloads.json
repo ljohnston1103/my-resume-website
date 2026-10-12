@@ -1,0 +1,395 @@
+{
+  "curricula": [
+    {
+      "id": "C01",
+      "title": "Genesis to Revelation: Daily Bible Devotions for Children",
+      "category": "Curricula and workbooks",
+      "summary": "365 daily devotions with comprehension questions, answers, practical applications, and prayer.",
+      "role": "Author and devotional curriculum developer.",
+      "pages": 329,
+      "bytes": 2501313,
+      "href": "/documents/curricula/C01.pdf"
+    },
+    {
+      "id": "C02",
+      "title": "PLANTED Youth Curriculum: Rooted in the Word",
+      "category": "Curricula and workbooks",
+      "summary": "Twenty lessons for youth, with an introduction and supporting appendices.",
+      "role": "Author and youth curriculum developer.",
+      "pages": 171,
+      "bytes": 2789725,
+      "href": "/documents/curricula/C02.pdf"
+    },
+    {
+      "id": "C03",
+      "title": "Principles from Proverbs: Wisdom for Young People",
+      "category": "Curricula and workbooks",
+      "summary": "Twelve lessons in four units, organized around wisdom and practical decisions. The final teacher edition includes answers.",
+      "role": "Curriculum development and teacher-resource preparation.",
+      "pages": 66,
+      "bytes": 976455,
+      "href": "/documents/curricula/C03.pdf"
+    },
+    {
+      "id": "C04",
+      "title": "Story of the Bible / The Biblical Story Through Its People",
+      "category": "Curricula and workbooks",
+      "summary": "Nineteen lessons in seven units tracing the biblical story through its people. Includes a final teacher edition and an earlier student workbook.",
+      "role": "Curriculum development and teacher/student resource preparation.",
+      "pages": 100,
+      "bytes": 1463200,
+      "href": "/documents/curricula/C04.pdf"
+    },
+    {
+      "id": "C05",
+      "title": "God’s Words Preserved",
+      "category": "Curricula and workbooks",
+      "summary": "Twenty-three one-hour sessions, including an introduction and 22 lessons, with a syllabus, learning objectives, student activities, and instructor answers. Companion curriculum to To Have and To Hold.",
+      "role": "Author and curriculum developer.",
+      "pages": 95,
+      "bytes": 2401053,
+      "href": "/documents/curricula/C05.pdf"
+    },
+    {
+      "id": "S01",
+      "title": "How to Study the Bible",
+      "category": "Teaching series",
+      "summary": "A twelve-week Bible-study course with teacher notes, student resources, presentations, rule cards, and related digital study resources.",
+      "role": "Teaching, course adaptation, and resource preparation; underlying sources retain their credit.",
+      "pages": 117,
+      "bytes": 11012783,
+      "href": "/documents/curricula/S01.pdf"
+    },
+    {
+      "id": "S02",
+      "title": "Practical Bible Study (including 2.0)",
+      "category": "Teaching series",
+      "summary": "Passage-based Bible-study sequences, including Practical Bible Study 2.0, with teacher/student materials and applied study exercises.",
+      "role": "Bible teaching and lesson preparation.",
+      "pages": 34,
+      "bytes": 2841581,
+      "href": "/documents/curricula/S02.pdf"
+    },
+    {
+      "id": "S03",
+      "title": "Life of a Disciple",
+      "category": "Teaching series",
+      "summary": "Eight weeks addressing spiritual growth, warfare, intimacy, suffering, communion, and warnings in the life of a disciple.",
+      "role": "Teaching and discipleship-resource preparation.",
+      "pages": 26,
+      "bytes": 1537452,
+      "href": "/documents/curricula/S03.pdf"
+    },
+    {
+      "id": "S04",
+      "title": "Revelation",
+      "category": "Teaching series",
+      "summary": "Weekly Revelation lessons with teacher/student resources, presentations, and a review.",
+      "role": "Teaching and adaptation of study materials; source material is credited.",
+      "pages": 58,
+      "bytes": 2586584,
+      "href": "/documents/curricula/S04.pdf"
+    },
+    {
+      "id": "S05",
+      "title": "World Religions",
+      "category": "Teaching series",
+      "summary": "Comparative religion lessons, student resources, presentations, and a review activity.",
+      "role": "Teaching and adaptation of course resources; inherited source material retains its credit.",
+      "pages": 46,
+      "bytes": 2296605,
+      "href": "/documents/curricula/S05.pdf"
+    },
+    {
+      "id": "S06",
+      "title": "Why We Use the KJB",
+      "category": "Teaching series",
+      "summary": "Seven weeks on Bible authority, manuscripts, translation, differences, and review.",
+      "role": "Teaching and resource adaptation, with credit retained for manuscript-evidence sources.",
+      "pages": 30,
+      "bytes": 836118,
+      "href": "/documents/curricula/S06.pdf"
+    },
+    {
+      "id": "S07",
+      "title": "Neglect Not Thy Gift / Spiritual Gifts",
+      "category": "Teaching series",
+      "summary": "An introductory lesson and six teaching weeks on spiritual gifts, with a questionnaire and summary resources.",
+      "role": "Teaching, lesson preparation, and adaptation of supporting resources.",
+      "pages": 42,
+      "bytes": 1394567,
+      "href": "/documents/curricula/S07.pdf"
+    },
+    {
+      "id": "S08",
+      "title": "Character Qualities",
+      "category": "Teaching series",
+      "summary": "Nine weeks addressing 27 character qualities through teacher/student resources, presentations, and a quiz.",
+      "role": "Teaching and adaptation; the underlying course credits Stephen Wineka.",
+      "pages": 53,
+      "bytes": 528017,
+      "href": "/documents/curricula/S08.pdf"
+    },
+    {
+      "id": "S09",
+      "title": "Questions and Answers",
+      "category": "Teaching series",
+      "summary": "Eight weeks of Bible questions and answers, with student resources and presentations.",
+      "role": "Teaching and lesson preparation.",
+      "pages": 38,
+      "bytes": 1793909,
+      "href": "/documents/curricula/S09.pdf"
+    },
+    {
+      "id": "S10",
+      "title": "2 Timothy 4",
+      "category": "Teaching series",
+      "summary": "Five weeks through 2 Timothy 4, with teacher/student lessons and slides. Earlier chapter studies are retained within the same book-study collection.",
+      "role": "Bible teaching and lesson preparation.",
+      "pages": 27,
+      "bytes": 1278292,
+      "href": "/documents/curricula/S10.pdf"
+    },
+    {
+      "id": "S11",
+      "title": "1 John: Millheim Youth",
+      "category": "Teaching series",
+      "summary": "Millheim youth lessons in the opening chapters of 1 John, with student resources and related earlier book studies.",
+      "role": "Bible teaching and lesson preparation.",
+      "pages": 17,
+      "bytes": 604086,
+      "href": "/documents/curricula/S11.pdf"
+    },
+    {
+      "id": "S12",
+      "title": "John SOAP Bible Study",
+      "category": "Teaching series",
+      "summary": "Available John chapter studies, cross-reference worksheets, and presentations using the SOAP study approach. Standalone studies for chapters 11, 17, and 20 are not included.",
+      "role": "Bible teaching and guided-study resource preparation.",
+      "pages": 67,
+      "bytes": 9319714,
+      "href": "/documents/curricula/S12.pdf"
+    },
+    {
+      "id": "S13",
+      "title": "Ready for Revival / Revival under Josiah",
+      "category": "Teaching series",
+      "summary": "Two lessons on revival under Josiah, paired with student materials.",
+      "role": "Teaching and lesson preparation.",
+      "pages": 8,
+      "bytes": 198099,
+      "href": "/documents/curricula/S13.pdf"
+    },
+    {
+      "id": "S14",
+      "title": "Gathering from the Garden",
+      "category": "Teaching series",
+      "summary": "Two Genesis 3 lessons with teacher and student materials.",
+      "role": "Teaching and lesson preparation.",
+      "pages": 7,
+      "bytes": 665996,
+      "href": "/documents/curricula/S14.pdf"
+    },
+    {
+      "id": "S15",
+      "title": "Men’s Bible Study: Spiritual Leadership",
+      "category": "Teaching series",
+      "summary": "Lessons on prayer and dependence, being a man of the Word, burden and courage, and character and integrity.",
+      "role": "Adult teaching and study-resource preparation.",
+      "pages": 9,
+      "bytes": 334357,
+      "href": "/documents/curricula/S15.pdf"
+    },
+    {
+      "id": "S16",
+      "title": "Walking with God",
+      "category": "Teaching series",
+      "summary": "A discipleship study with teacher/student master resources through Week 12 and supporting classroom files.",
+      "role": "Teaching and adaptation of the MBC Next Steps course.",
+      "pages": 83,
+      "bytes": 776692,
+      "href": "/documents/curricula/S16.pdf"
+    },
+    {
+      "id": "S17",
+      "title": "Biblical Relationships",
+      "category": "Teaching series",
+      "summary": "Teacher and student introductory lessons for a biblical relationships course.",
+      "role": "Teaching and adaptation; the underlying course credits Stephen Wineka.",
+      "pages": 5,
+      "bytes": 88982,
+      "href": "/documents/curricula/S17.pdf"
+    },
+    {
+      "id": "M01",
+      "title": "Evangelism Class",
+      "category": "Missions and training",
+      "summary": "A three-week evangelism course with teacher/student resources and presentations.",
+      "role": "Evangelism training and resource preparation.",
+      "pages": 15,
+      "bytes": 838986,
+      "href": "/documents/curricula/M01.pdf"
+    },
+    {
+      "id": "M02",
+      "title": "3–2–1 Outreach",
+      "category": "Missions and training",
+      "summary": "Two outreach-preparation lessons with teacher/student resources and presentations.",
+      "role": "Outreach training and lesson preparation.",
+      "pages": 5,
+      "bytes": 179810,
+      "href": "/documents/curricula/M02.pdf"
+    },
+    {
+      "id": "M03",
+      "title": "Portland Mission Team Training",
+      "category": "Missions and training",
+      "summary": "Instructional material and encouragement verses prepared for a six-week mission-team preparation schedule in 2025, including gospel conversations, anticipated questions, and roleplay.",
+      "role": "Training prepared and adapted by Luke Johnston from a mission-team training template credited to Jay Baughman; original source credits retained.",
+      "pages": 12,
+      "bytes": 132682,
+      "href": "/documents/curricula/M03.pdf"
+    },
+    {
+      "id": "M04",
+      "title": "Booth Evangelism / HEM ASK Training",
+      "category": "Missions and training",
+      "summary": "Reusable booth-evangelism and A.S.K. training materials, conversation scenarios, and participant resources.",
+      "role": "Volunteer training and resource adaptation, with original source credit retained.",
+      "pages": 18,
+      "bytes": 2405028,
+      "href": "/documents/curricula/M04.pdf"
+    },
+    {
+      "id": "M05",
+      "title": "Church Training Pathway",
+      "category": "Missions and training",
+      "summary": "A click-through presentation showing a church training progression.",
+      "role": "Training-pathway organization and presentation design.",
+      "pages": 5,
+      "bytes": 360923,
+      "href": "/documents/curricula/M05.pdf"
+    },
+    {
+      "id": "A01",
+      "title": "Selected stand-alone Bible lessons",
+      "category": "Teaching and design samples",
+      "summary": "Stand-alone Bible lessons, children’s activities, worksheets, teacher notes, student resources, and presentations.",
+      "role": "Original and adapted lesson preparation, with teacher and student resources and source credits retained. The JBI demonstration applies the established Seven Laws of the Teacher method.",
+      "pages": 76,
+      "bytes": 2107720,
+      "href": "/documents/curricula/A01.pdf"
+    },
+    {
+      "id": "A02",
+      "title": "Ephesians BibleNoteTakers Edition",
+      "category": "Teaching and design samples",
+      "summary": "An A5 Ephesians Scripture notebook with generous writing space for notes.",
+      "role": "Scripture notebook layout sample; BibleNoteTakers edition.",
+      "pages": 32,
+      "bytes": 100049,
+      "href": "/documents/curricula/A02.pdf"
+    }
+  ],
+  "companions": [
+    {
+      "id": "C04",
+      "title": "Story of the Bible — Earlier Student Workbook",
+      "pages": 83,
+      "href": "/documents/curricula/C04-student.pdf"
+    },
+    {
+      "id": "C05",
+      "title": "God’s Words Preserved — Student Workbook",
+      "pages": 95,
+      "href": "/documents/curricula/C05-student.pdf"
+    }
+  ],
+  "books": [
+    {
+      "approvedID": "B03",
+      "title": "To Have and To Hold",
+      "subtitle": "The Preserved Word of God for Today in the King James Bible",
+      "credits": "Luke Johnston",
+      "edition": "First Edition (2025)",
+      "description": "The original study of Bible preservation, manuscript history, and the King James Bible. Archived first edition; one book family with the second and expanded editions.",
+      "webPath": "/documents/books/to-have-and-to-hold-first-edition.pdf",
+      "pages": 194,
+      "bytes": 8139667,
+      "coverWebPath": "/assets/covers/B03-first.jpg"
+    },
+    {
+      "approvedID": "B03",
+      "title": "To Have and To Hold",
+      "subtitle": "The Preserved Word of God for Today in the King James Bible",
+      "credits": "Luke Johnston",
+      "edition": "Second Edition (2026)",
+      "description": "A shorter introduction to Bible preservation and the King James Bible, organized around biblical doctrine, textual history, translation, and frequently asked questions.",
+      "webPath": "/documents/books/to-have-and-to-hold-original.pdf",
+      "pages": 227,
+      "bytes": 13971754,
+      "coverWebPath": "/assets/covers/B03-original.jpg"
+    },
+    {
+      "approvedID": "B03",
+      "title": "To Have and To Hold",
+      "subtitle": "The Preserved Word of God for Today in the King James Bible",
+      "credits": "Luke Johnston",
+      "edition": "Expanded Study Edition - Third Edition (2026)",
+      "description": "An expanded study of Bible preservation, transmission, historical witnesses, translation philosophy, and doctrinal questions. The full book interior includes its references and bibliography.",
+      "webPath": "/documents/books/to-have-and-to-hold-expanded.pdf",
+      "pages": 442,
+      "bytes": 10067938,
+      "coverWebPath": "/assets/covers/B03-expanded.jpg"
+    },
+    {
+      "approvedID": "B02",
+      "title": "The Truth About Calvinism",
+      "subtitle": "A Biblical Answer to TULIP and the History Behind It",
+      "credits": "Luke, Caleb, Jadon, and Micah Johnston (JohnstonBros)",
+      "edition": "Expanded study edition (2026)",
+      "description": "A coauthored examination of Calvinism, its historical development, and the five points of TULIP, with biblical argument, historical quotations, notes, and bibliography.",
+      "webPath": "/documents/books/the-truth-about-calvinism.pdf",
+      "pages": 88,
+      "bytes": 2844822,
+      "coverWebPath": "/assets/covers/B02.jpg"
+    },
+    {
+      "approvedID": "B01",
+      "title": "The Truth About the Israel Issue",
+      "subtitle": "A Biblical View on Israel, the Church, and the Issue of Replacement Theology",
+      "credits": "Luke, Caleb, Jadon, and Micah Johnston (JohnstonBros)",
+      "edition": "Expanded Edition (2026)",
+      "description": "A coauthored biblical study of Israel and the Church that follows covenant promises, prophetic passages, and New Testament arguments concerning replacement theology.",
+      "webPath": "/documents/books/the-truth-about-israel.pdf",
+      "pages": 92,
+      "bytes": 2210227,
+      "coverWebPath": "/assets/covers/B01.jpg"
+    },
+    {
+      "approvedID": "B04",
+      "title": "One Kingdom Two Names",
+      "subtitle": "The Kingdom of God, the Kingdom of Heaven, and the Kingdom the Prophets Promised",
+      "credits": "Luke Johnston",
+      "edition": "Final October 2026 manuscript",
+      "description": "A complete biblical research paper tracing the Kingdom of God and the Kingdom of Heaven through the prophets, Gospels, and New Testament. The source title page retains its September 2026 date.",
+      "webPath": "/documents/books/one-kingdom-two-names.pdf",
+      "pages": 82,
+      "bytes": 524632,
+      "coverWebPath": "/assets/covers/B04.jpg"
+    }
+  ],
+  "fullPortfolio": {
+    "href": "/documents/luke-johnston-curriculum-portfolio.pdf",
+    "pages": 1627,
+    "bytes": 45892997
+  },
+  "resume": {
+    "href": "/documents/luke-johnston-resume.pdf",
+    "pages": 3
+  },
+  "cv": {
+    "href": "/documents/luke-johnston-comprehensive-cv.pdf",
+    "pages": 4
+  }
+}

@@ -1,43 +1,115 @@
 import Link from "next/link";
-import PageHeader from "../components/PageHeader";
-import PortfolioEntry from "../components/PortfolioEntry";
-import { portfolio, portfolioCategories } from "../portfolioData";
+import { books, portfolioById } from "../_lib/collections";
+import { fileInfo } from "../_lib/publicFiles";
+import BookCard from "../components/BookCard";
+import Cover from "../components/Cover";
+import PageIntro from "../components/PageIntro";
+import { capitalize } from "../components/WorkCard";
+import { bookDetails, coverCandidates, curriculumPdf } from "../portfolioAssets";
+
+export const dynamic = "force-static";
 
 export const metadata = {
-  title: "Work",
-  description: "Luke Johnston's curriculum, teaching, missions training, books, research, and digital resources.",
+  title: "Books",
+  description:
+    "To Have and To Hold in first, second, and expanded editions, The Truth About Calvinism, The Truth About the Israel Issue, and One Kingdom Two Names, with full PDFs.",
 };
-const sectionId = (category) => category.toLowerCase().replaceAll(" ", "-");
 
-export default function WorkPage() {
+export default function BooksPage() {
+  const [featured, ...rest] = books();
+  const coauthored = rest.filter((item) => item.kind === "coauthored book");
+  const research = rest.filter((item) => item.kind !== "coauthored book");
+  const curriculumBooks = ["C02", "C01"].map((id) => portfolioById[id]).filter(Boolean);
+  const bookFiles = books().flatMap((item) => {
+    const details = bookDetails[item.id] ?? {};
+    return details.editions ? details.editions.map((edition) => edition.pdf) : [details.pdf];
+  });
+  const allBooksReadable = bookFiles.every((href) => fileInfo(href));
+  const curriculumReadable = curriculumBooks.every((item) => fileInfo(curriculumPdf(item.id)));
+
   return (
     <main>
-      <PageHeader title="Work" lead="Curriculum, classroom resources, missions training, books, and digital learning. Open an entry to explore its purpose and my contribution." />
-      <nav className="wrap portfolioNav" aria-label="Portfolio categories">
-        {portfolioCategories.map((category) => (
-          <a className="textLink" href={`#${sectionId(category)}`} key={category}>{category}</a>
-        ))}
-      </nav>
-      <div className="wrap portfolioGuide">
-        <div className="buttonRow">
-          <a className="button secondary" href="/documents/luke-johnston-portfolio-guide.pdf" target="_blank" rel="noopener">Portfolio guide <span className="buttonMeta">PDF</span></a>
-          <a className="button secondary" href="/documents/luke-johnston-curriculum-samples.pdf" target="_blank" rel="noopener">Teaching samples <span className="buttonMeta">PDF</span></a>
+      <PageIntro
+        title="Books and research"
+        lead={`A book in three editions, two coauthored books, and a research paper.${
+          allBooksReadable ? " Open each one in your browser or download it." : ""
+        }`}
+      />
+
+      <section className="band bandPaper" aria-label={featured.title}>
+        <div className="wrap">
+          <BookCard item={featured} variant="feature" headingLevel={2} />
         </div>
-        <p className="sectionNote">Teacher and student editions, slides, and revisions are grouped with their curriculum or series. Complete teaching files are available on request.</p>
-      </div>
-      {portfolioCategories.map((category) => (
-        <section className="section wrap split" id={sectionId(category)} aria-labelledby={`${sectionId(category)}-title`} key={category}>
-          <h2 id={`${sectionId(category)}-title`} className="sectionTitle">{category}</h2>
-          <ul className="entryList">
-            {portfolio.filter((item) => item.category === category).map((item) => (
-              <li key={item.id}><PortfolioEntry item={item} /></li>
+      </section>
+
+      {coauthored.length ? (
+        <section className="band bandTint" aria-labelledby="coauthored-title">
+          <div className="wrap">
+            <div className="bandHead">
+              <h2 id="coauthored-title" className="displayTitle">
+                Coauthored books
+              </h2>
+              <p className="bandLead">Written with Caleb, Jadon, and Micah Johnston.</p>
+            </div>
+            <div className="bookGrid">
+              {coauthored.map((item) => (
+                <BookCard key={item.id} item={item} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {research.length ? (
+        <section className="band bandPaper" aria-labelledby="research-title">
+          <div className="wrap">
+            <div className="bandHead">
+              <h2 id="research-title" className="displayTitle">
+                Research
+              </h2>
+            </div>
+            <div className="bookGrid">
+              {research.map((item) => (
+                <BookCard key={item.id} item={item} />
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      <section className="band bandTint anchorBand" id="curriculum-books" aria-labelledby="curriculum-books-title">
+        <div className="wrap">
+          <div className="bandHead">
+            <h2 id="curriculum-books-title" className="displayTitle">
+              Curriculum in book form
+            </h2>
+            <p className="bandLead">
+              {curriculumReadable
+                ? "These live with the curriculum, where you can read them in full."
+                : "These live with the curriculum."}
+            </p>
+          </div>
+          <ul className="crossList">
+            {curriculumBooks.map((item) => (
+              <li key={item.id}>
+                <Link className="crossItem" href={`/curriculum#${item.id}`}>
+                  <Cover
+                    candidates={coverCandidates(item)}
+                    title={item.title}
+                    kind={capitalize(item.kind)}
+                    sizes="120px"
+                  />
+                  <span className="crossText">
+                    <span className="workKind">{capitalize(item.kind)}</span>
+                    <span className="crossTitle">{item.title}</span>
+                    <span className="crossSummary">{item.summary}</span>
+                    <span className="crossGo">Open on the Curriculum page</span>
+                  </span>
+                </Link>
+              </li>
             ))}
           </ul>
-        </section>
-      ))}
-      <section className="section wrap split" aria-labelledby="sample-request-title">
-        <h2 id="sample-request-title" className="sectionTitle">Discuss a role or request samples</h2>
-        <p className="bodyText">For curriculum, teaching, writing, or training opportunities, <a className="textLink" href="mailto:luke.johnston1103@gmail.com?subject=Portfolio%20sample%20request">email me</a>. My broader work history and education are on the <Link className="textLink" href="/resume">Experience</Link> page.</p>
+        </div>
       </section>
     </main>
   );
