@@ -2,40 +2,49 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import ScrollParallax from "../ScrollParallax";
+import { footerLinks, person } from "../siteData";
 import SiteHeader from "./SiteHeader";
 
 export default function SiteChrome({ children }) {
   const pathname = usePathname();
-  const isEntryPage = pathname === "/enter";
 
-  if (isEntryPage) {
+  // The password page keeps its own full-screen layout.
+  if (pathname === "/enter") {
     return children;
   }
 
   return (
     <>
-      <a className="skipLink" href="#main-content">Skip to content</a>
-      <ScrollParallax />
+      <a className="skipLink" href="#main-content">
+        Skip to content
+      </a>
       <SiteHeader />
-      <div id="main-content" tabIndex={-1}>{children}</div>
-      <footer className="footer">
-        <div>
-          <p className="footerTitle">Dr. Luke Johnston</p>
-          <p>Ministry, books, media, and academic documents</p>
-        </div>
-        <div className="footerLinks">
-          <a href="mailto:luke.johnston1103@gmail.com">
-            luke.johnston1103@gmail.com
-          </a>
-          <a
-            href="/documents/luke-johnston-resume.pdf"
-            target="_blank"
-            rel="noreferrer"
-          >
-            View Resume PDF
-          </a>
-          <Link href="/documents">Document Center</Link>
+      <div id="main-content" tabIndex={-1}>
+        {children}
+      </div>
+      <footer className="siteFooter">
+        <div className="wrap siteFooterInner">
+          <div className="footerIdentity">
+            <p className="footerName">{person.name}</p>
+            <p>{person.location}</p>
+          </div>
+          <ul className="footerList" aria-label="Contact">
+            <li>
+              <a href={`mailto:${person.email}`}>{person.email}</a>
+            </li>
+            <li>
+              <a href={person.phoneHref}>{person.phone}</a>
+            </li>
+          </ul>
+          <nav aria-label="More pages">
+            <ul className="footerList">
+              {footerLinks.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href}>{item.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </footer>
     </>

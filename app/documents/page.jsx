@@ -1,74 +1,62 @@
-import PageHero from "../components/PageHero";
-import { documents } from "../siteData";
+import Link from "next/link";
+import PageHeader from "../components/PageHeader";
+import ResumeLinks from "../components/ResumeLinks";
+import { academicRecords } from "../siteData";
 
 export const metadata = {
-  title: "Documents",
+  title: "Resume",
+  description: "Luke Johnston's full professional resume and curriculum developer resume, with academic records.",
 };
 
-export default function DocumentsPage() {
+export default function ResumePage() {
   return (
-    <main className="pageShell">
-      <PageHero
-        className="documentsHero"
-        eyebrow="Documents"
-        title="Professional resumes and academic records."
-        lead="Choose the full professional resume or the focused curriculum developer resume. Supporting transcripts and degree records are also available below."
-        actions={
-          <>
-            <a
-              className="button"
-              href="/documents/luke-johnston-resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Full Professional Resume
-            </a>
-            <a
-              className="button secondary"
-              href="/documents/luke-johnston-curriculum-resume.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Curriculum Developer Resume
-            </a>
-            <a
-              className="button secondary"
-              href="/documents/luther-rice-status-sheet.pdf"
-              target="_blank"
-              rel="noreferrer"
-            >
-              Doctor of Ministry Status
-            </a>
-          </>
-        }
-      >
-        <div className="heroPanel">
-          <p className="eyebrow">PDF Files</p>
-          <p>Each item below opens directly as a PDF from the site.</p>
-        </div>
-      </PageHero>
+    <main>
+      <PageHeader
+        title="Resume"
+        lead="Two versions, both as PDFs: a comprehensive professional resume, and a shorter resume focused on curriculum development and teaching."
+      />
 
-      <section className="section sectionWash">
-        <div className="sectionHeader">
-          <p className="eyebrow">Document Center</p>
-          <h2>Every record in one place.</h2>
+      <section className="section wrap split" aria-labelledby="downloads-title">
+        <h2 id="downloads-title" className="sectionTitle">
+          Download
+        </h2>
+        <div>
+          <ResumeLinks variant="list" />
+          <p className="sectionFoot">
+            <a className="textLink" href="/documents/luke-johnston-portfolio-guide.pdf" target="_blank" rel="noopener">Download the portfolio guide</a>{" "}
+            for curriculum, teaching, missions training, books, and digital work samples.
+          </p>
+          <p className="sectionFoot">
+            <a className="textLink" href="/documents/luke-johnston-curriculum-samples.pdf" target="_blank" rel="noopener">View selected teaching samples</a>{" "}
+            from the children’s devotional and youth and adult curricula.
+          </p>
+          <p className="sectionFoot">
+            Experience, education, and skills are also listed on the{" "}
+            <Link className="textLink" href="/resume">
+              Experience
+            </Link>{" "}
+            page.
+          </p>
         </div>
-        <div className="documentGrid">
-          {documents.map((document) => (
-            <a
-              className="bookCard"
-              href={document.href}
-              key={document.title}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <p className="eyebrow">{document.badge}</p>
-              <h2>{document.title}</h2>
-              <p>{document.text}</p>
-              <span className="inlineLink">Open PDF</span>
-            </a>
+      </section>
+
+      <section id="records" className="section wrap split" aria-labelledby="records-title">
+        <h2 id="records-title" className="sectionTitle">
+          Academic records
+        </h2>
+        <ul className="recordList">
+          {academicRecords.map((record) => (
+            <li key={record.href}>
+              <a className="record" href={record.href} target="_blank" rel="noopener">
+                <span className="recordTitle">{record.title}</span>
+                <span className="recordText">{record.text}</span>
+                <span className="recordMeta">
+                  PDF<span className="visuallyHidden"> (opens in a new tab)</span>
+                </span>
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </section>
     </main>
   );

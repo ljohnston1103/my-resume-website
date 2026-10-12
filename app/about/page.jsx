@@ -1,80 +1,84 @@
 import Image from "next/image";
 import Link from "next/link";
-import PageHero from "../components/PageHero";
-import { aboutFacts, aboutHighlights } from "../siteData";
+import { person } from "../siteData";
 
 export const metadata = {
   title: "About",
+  description: "About Luke Johnston: teaching, ministry, publishing, and study.",
 };
 
 export default function AboutPage() {
   return (
-    <main className="pageShell">
-      <PageHero
-        className="aboutHero"
-        eyebrow="About Dr. Luke Johnston"
-        title="Teacher, curriculum developer, author, and ministry leader."
-        lead="I bring experience in children’s and youth teaching, adult training, missions preparation, business, publishing, and digital resources."
-        actions={
-          <>
-            <Link className="button" href="/resume">
-              Resume Page
-            </Link>
-            <Link className="button secondary" href="/documents">
-              View Documents
-            </Link>
-          </>
-        }
-      >
-        <div className="aboutPortraitCard">
+    <main>
+      <div className="wrap about">
+        <div className="aboutPortrait">
           <Image
-            src="/luke-johnston-enhanced.png"
-            alt="Dr. Luke Johnston portrait"
+            src={person.portrait}
+            alt={`Portrait of ${person.name}`}
             fill
-            sizes="(max-width: 860px) 100vw, 34vw"
-            className="aboutPortraitImage"
+            preload
+            sizes="(min-width: 900px) 30vw, (min-width: 600px) 50vw, 100vw"
           />
         </div>
-      </PageHero>
 
-      <section className="section teamSection">
-        <div className="teamIntro">
-          <p className="eyebrow">Highlights</p>
-          <h2>Teaching, ministry leadership, writing, and digital work.</h2>
-        </div>
-        <div className="teamGrid">
-          {aboutHighlights.map((item) => (
-            <article className="teamCard textCard" key={item.title}>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-            </article>
-          ))}
-        </div>
-      </section>
+        <div className="aboutText">
+          <h1 className="pageTitle">About</h1>
+          <p className="lead">{person.intro}</p>
+          <p className="bodyText">
+            I serve as Youth and Discipleship Pastor at Millheim Baptist Church and as an
+            Account Representative with State Farm in North Canton, Ohio. From April 2022 to
+            October 2025, I served as Youth and Evangelism Director at Greentown Baptist
+            Church, where my evangelism leadership began in February 2019.
+          </p>
+          <p className="bodyText">
+            I have seven years of experience teaching children ages 6–11 and five years
+            teaching youth ages 12–19, along with adult teaching, evangelism training, and
+            one-to-one discipleship.
+          </p>
+          <p className="bodyText">
+            I am completing a Doctor of Ministry at Luther Rice College &amp; Seminary, where my
+            doctoral ministry project concerns an intentional one-to-one discipleship process
+            at Millheim. I am also completing a Master of Arts in Church Ministry and a
+            Bachelor of Science in Biblical Studies at Mission University. All three are
+            expected in Spring 2027.
+          </p>
 
-      <section className="section splitSection">
-        <div className="notePanel">
-          <p className="eyebrow">At a Glance</p>
-          <div className="resumeList">
-            {aboutFacts.map((fact) => (
-              <div className="listRow" key={fact.title}>
-                <strong>{fact.title}</strong>
-                <span>{fact.text}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-        <div className="notePanel">
-          <p className="eyebrow">Overview</p>
-          <h2 className="panelHeadline">What this site brings together.</h2>
-          <p>
-            My work connects curriculum and teaching with individual discipleship,
-            volunteer development, missions preparation, and practical resources.
-            I also bring experience in customer account service, sales, independent
-            publishing, podcast and video content, and ministry websites.
+          <dl className="contactList">
+            <div>
+              <dt>Location</dt>
+              <dd>{person.location}</dd>
+            </div>
+            <div>
+              <dt>Email</dt>
+              <dd>
+                <a className="textLink" href={`mailto:${person.email}`}>
+                  {person.email}
+                </a>
+              </dd>
+            </div>
+            <div>
+              <dt>Phone</dt>
+              <dd>
+                <a className="textLink" href={person.phoneHref}>
+                  {person.phone}
+                </a>
+              </dd>
+            </div>
+          </dl>
+
+          <p className="bodyText">
+            See my{" "}
+            <Link className="textLink" href="/books">
+              work
+            </Link>{" "}
+            or my full{" "}
+            <Link className="textLink" href="/resume">
+              experience and education
+            </Link>
+            .
           </p>
         </div>
-      </section>
+      </div>
     </main>
   );
 }
