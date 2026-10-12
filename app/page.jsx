@@ -70,7 +70,7 @@ export default function Home() {
     },
     {
       title: "Service and sales",
-      text: "Account Representative at State Farm since October 2020, managing client accounts and responding to account and service questions. Earlier, Lead Sales Agent.",
+      text: "Account Representative at State Farm since October 2020, managing client accounts and responding to account and service questions.",
       href: "/resume#current",
       link: "See the full experience",
     },

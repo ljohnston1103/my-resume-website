@@ -158,17 +158,6 @@ export const previousRoles = [
       "Supported individual discipleship.",
     ],
   },
-  {
-    title: "Lead Sales Agent",
-    org: "Buffalo Bills Premium Snacks",
-    place: "Uniontown, Ohio",
-    dates: "June 2016–June 2018",
-    points: [
-      "Prospected for customers and developed and maintained accounts.",
-      "Set sales objectives and organized activity around customer needs and product availability.",
-      "Supported expansion into additional markets.",
-    ],
-  },
 ];
 
 // Describe as adapted and prepared training. Do not claim completed travel,
@@ -273,12 +262,6 @@ export const educationCompleted = [
 ];
 
 export const educationAdditional = [
-  {
-    title: "Additional biblical and ministry coursework",
-    org: "Jesus Moment Online Bible Institute and Seminary",
-    place: null,
-    dates: "2017–2023",
-  },
   {
     title: "High school diploma",
     org: "Manchester High School",
