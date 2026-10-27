@@ -33,9 +33,9 @@ export const portfolio = [
       }
     ],
     "cover": {
-      "src": "/book-planted-cover.jpg",
-      "width": 387,
-      "height": 500
+      "src": "/book-planted-cover-clean.png",
+      "width": 1073,
+      "height": 1466
     }
   },
   {
